@@ -5,6 +5,12 @@ class SpentTimeController < ApplicationController
   helper :spent_time
   include SpentTimeHelper
 
+  # Show the initial form.
+  # * If user has permissions to see spent time for every project
+  # the users combobox is filled with all the users.
+  # * If user has permissions to see other members' spent times of the projects he works in,
+  # the users combobox is filled with their co-workers
+  # * If the user only has permissions to see his own report, the users' combobox is filled with the user himself.
   def index
     @user = User.current
     if (authorized_for?(:view_every_project_spent_time))
@@ -18,10 +24,11 @@ class SpentTimeController < ApplicationController
       @users = [@user]
     end
     @users.sort! { |a, b| a.name <=> b.name }
-    @assigned_issues = find_assigned_issues
+    @assigned_issues = []
     @same_user = true
   end
 
+  # Show the report of spent time between to dates for an user
   def report
     @user = User.current
     make_time_entry_report(params[:from], params[:to], params[:user])
@@ -29,10 +36,10 @@ class SpentTimeController < ApplicationController
     @same_user = (@user.id == another_user.id)
     respond_to do |format|
       format.html { render :partial => 'report'}
-      #format.csv  { send_data(report_to_csv(@criterias, @periods, @hours).read, :type => 'text/csv; header=present', :filename => 'timelog.csv') }
     end
   end
 
+  # Delete a time entry
   def destroy_entry
     @time_entry = TimeEntry.find(params[:id])
     render_404 and return unless @time_entry
@@ -50,6 +57,7 @@ class SpentTimeController < ApplicationController
     redirect_to :action => 'index'
   end
 
+  # Create a new time entry
   def create_entry
     @user = User.current
 
@@ -58,7 +66,7 @@ class SpentTimeController < ApplicationController
     @from = params[:from].to_s.to_date
     @to = params[:to].to_s.to_date
 
-    # Persistimos el nuevo registro
+    # Save the new record
     @issue = Issue.find(params[:time_entry][:issue_id])
     @project = @issue.project
     @time_entry ||= TimeEntry.new(:project => @project, :issue => @issue, :user => @user)
@@ -78,6 +86,7 @@ class SpentTimeController < ApplicationController
     end
   end
 
+  # Update the project's issues when another project is selected
   def update_project_issues
     find_assigned_issues_by_project(params[:select_project])
     render :update do |page|
@@ -85,7 +94,7 @@ class SpentTimeController < ApplicationController
     end
   end
 
-  # Actualiza el select de las personas después de haber elegido un proyecto
+  # Update the users' combobox after changing the project
   def update_users_select
     if Project.exists?(params[:value])
       project = Project.find(params[:value])

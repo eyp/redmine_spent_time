@@ -1,9 +1,7 @@
 <div id='new_entries_form'  style='display:none;'>
-  <!-- Formulario de alta de nuevas entradas de tiempos -->
   <% form_remote_tag(:url => {:action => :dates_for_create_entries}, :update => 'new_entries_dates') do %>
     <p>
       <%= l(:label_issue) %>
-      <%# select_tag 'issue', options_for_select(@assigned_issues.collect {|issue| ["##{issue.id} - #{issue.subject}", issue.id]}) %>
     </p>
     <p>
       <%= l(:label_date_from) %>

@@ -3,20 +3,7 @@ module SpentTimeHelper
     User.current.allowed_to?(action, nil, { :global => :true })
   end
 
-  # Devuelve las tareas asignadas al usuario conectado
-  def find_assigned_issues
-    @user = User.current
-    @assigned_issues = []
-#    @assigned_issues = [ "--- #{l(:actionview_instancetag_blank_option)} ---", '' ]
-    #issues = Issue.find(:all,
-                        #:conditions => ["assigned_to_id=? AND #{IssueStatus.table_name}.is_closed=? AND #{Project.table_name}.status=#{Project::STATUS_ACTIVE}", @user.id, false],
-                        #:include => [ :status, :project, :tracker, :priority ],
-                        #:order => "#{Enumeration.table_name}.position DESC, #{Issue.table_name}.updated_on DESC")
-    #issues.each { |issue| @assigned_issues << ["##{issue.id} - #{issue.subject}", issue.id]}
-    # De momento no hacemos lo anterior porque aparece una opción en blanco y no sé por qué
-    #@assigned_issues = issues
-  end
-
+  # Find issues assigned to the user and issues not assigned to him which the user has spent time
   def find_assigned_issues_by_project(project)
     @user = User.current
     begin
@@ -24,8 +11,6 @@ module SpentTimeHelper
     rescue
       @assigned_issues = []
     else
-      # En la consulta se añaden las tareas que aunque no estén asignadas al usuario, éste haya
-      # cargado horas
       @assigned_issues = Issue.find(:all,
                           :conditions => ["(assigned_to_id=? or time_entries.user_id=?) AND #{IssueStatus.table_name}.is_closed=? AND #{Project.table_name}.status=#{Project::STATUS_ACTIVE} AND #{Project.table_name}.id=?", @user.id, @user.id, false, @project.id],
                           :include => [ :status, :project, :tracker, :priority, :time_entries ],
@@ -35,7 +20,7 @@ module SpentTimeHelper
     @assigned_issues
   end
 
-  # Construye el informe de entradas de tiempos
+  # Make the spent time report between two dates for a given user
   def make_time_entry_report(from, to, user)
     retrieve_date_range(from, to)
     conditions = "#{TimeEntry.table_name}.user_id = ? AND #{TimeEntry.table_name}.spent_on BETWEEN ? AND ?"
@@ -50,7 +35,7 @@ module SpentTimeHelper
             :include => [:activity, :project, {:issue => [:tracker, :status]}],
             :order => "#{TimeEntry.table_name}.spent_on DESC, #{Project.table_name}.name ASC, #{Tracker.table_name}.position ASC, #{Issue.table_name}.id ASC")
     @entries_by_date = @entries.group_by(&:spent_on)
-    @assigned_issues = find_assigned_issues
+    @assigned_issues = []
     @activities = TimeEntryActivity.all
   end
 
@@ -97,7 +82,6 @@ module SpentTimeHelper
 
     @from, @to = @to, @from if @from && @to && @from > @to
     @from ||= (TimeEntry.minimum(:spent_on, :include => :project, :conditions => Project.allowed_to_condition(User.current, :view_time_entries)) || Date.today) - 1
-    #@to   ||= (TimeEntry.maximum(:spent_on, :include => :project, :conditions => Project.allowed_to_condition(User.current, :view_time_entries)) || Date.today)
     @to   ||= Date.today
   end
 end
