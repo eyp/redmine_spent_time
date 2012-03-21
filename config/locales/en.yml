@@ -1,0 +1,10 @@
+# English strings go here
+en:
+  spent_time_title: "Spent time"
+  label_total_time: "Total time"
+  label_new_entry: "New Entry"
+  label_add_entry: "Add Entry"
+  weekend: "Weekend"
+  select_issues_option: "Select Issue"
+  issue_not_exists: "Issue Not Exists"
+  

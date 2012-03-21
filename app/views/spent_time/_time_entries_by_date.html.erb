@@ -1,0 +1,33 @@
+<%- is_weekend = (day.wday == 0 || day.wday == 6) %>
+<tr id='"time_entry.#{day}"' class="odd <%= (is_weekend ? "weekend_row" : "")%>">
+  <td><strong><%= day == Date.today ? l(:label_today).titleize : format_date(day) %></strong></td>
+  <% if is_weekend %>
+    <td colspan="2" align="center"><%= l(:weekend) %> </td>
+  <% else %>
+    <td colspan="2"></td>
+  <% end -%>
+  <%-
+      if is_weekend
+        style = 'hours'
+      else
+        total_hours = (@entries_by_date[day].nil? ? 0 : @entries_by_date[day].sum(&:hours).to_f)
+        style = 'hours'
+        if total_hours < 8.0
+            style = 'less_than_8_hours'
+        elsif total_hours > 8.0
+            style = 'more_than_8_hours'
+        end
+      end
+  %>
+  <% if is_weekend %>
+    <td class="<%= style %>"><em>--</em></td>
+  <% else %>
+    <td class="<%= style %>"><em><%= "%.2f" % total_hours %></em></td>
+  <% end -%>
+  <td></td>
+</tr>
+<% if !@entries_by_date[day].nil? %>
+  <% @entries_by_date[day].each do |entry| -%>
+    <%= render :partial => 'time_entry_row', :locals => {:entry => entry} %>
+  <% end -%>
+<% end -%>

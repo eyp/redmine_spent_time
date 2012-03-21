@@ -1,0 +1,12 @@
+# Spanish strings go here
+es:
+  spent_time_title: "Carga de Horas"
+  label_total_time: "Tiempo total"
+  label_new_entry: "Nueva Entrada de Tiempo"
+  label_add_entry: "Añadir Entrada de Tiempo"
+  weekend: "Fin de Semana"
+<<<<<<< .mine
+  select_issues_option: "Seleccione una Tarea"
+=======
+  select_issues_option: "Seleccione una Petición"
+>>>>>>> .r75399

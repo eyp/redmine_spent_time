@@ -1,0 +1,7 @@
+<div id="report_menu_options">
+  <%= link_to_function(l(:label_add_entry), nil) do |page|
+        page.visual_effect(:toggle_blind, "new_time_entry_form")
+        page.visual_effect(:toggle_appear, "report_menu_options")
+      end if @same_user %>
+</div>
+

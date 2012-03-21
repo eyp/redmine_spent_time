@@ -1,0 +1,14 @@
+<tr id='<%= "time_entry.#{entry.id}" %>' class="time-entry" style="border-bottom: 1px solid #f5f5f5;">
+  <td class="activity"><%=h entry.activity %></td>
+  <td class="subject"><%=h entry.project %> - [<%= entry.issue ? entry.issue.status : l(:issue_not_exists)%>] <%= (' - ' + link_to_issue(entry.issue)) if entry.issue %></td>
+  <td class="comments"><%=h entry.comments %></td>
+  <td class="issue-hours"><%= html_hours("%.2f" % entry.hours) %></td>
+  <td align="center">
+  <% if entry.editable_by?(@user) -%>
+      <%= link_to image_tag('edit.png'), {:controller => 'timelog', :action => 'edit', :id => entry},
+                                         :title => l(:button_edit) %>
+      <%= link_to_remote(image_tag('delete.png'), :url => {:action => 'destroy_entry', :id => entry.id, :from => @from, :to => @to},
+                                           :confirm => l(:text_are_you_sure)) %>
+  <% end -%>
+  </td>
+</tr>

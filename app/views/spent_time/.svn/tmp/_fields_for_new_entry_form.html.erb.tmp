@@ -1,0 +1,24 @@
+<div id='fields_for_new_entry_form'>
+  <%= l(:label_issue) %>
+  <% if (@assigned_issues.empty?) %>
+    <%= select_tag('time_entry[issue_id]', "<option value='-1'>-#{l(:select_issues_option)}</option>") %>
+  <% else %>
+    <%= select_tag('time_entry[issue_id]',
+                   options_for_select(@assigned_issues.collect { |i| ["##{i.id} - #{i.subject}", i.id] })) %>
+  <% end -%>
+  <%= l(:label_date) %>
+  <%= text_field_tag('time_entry[spent_on]', '', :size => 10) %> <%= calendar_for('time_entry[spent_on]') %>
+  <%= l(:label_activity) %>
+  <%= select(:time_entry, :activity_id, activity_collection_for_select_options)%>
+  <%= l(:field_hours) %>
+  <%= text_field_tag('time_entry[hours]', '', :size => 6)%>
+  <%= l(:field_comments) %>
+  <%= text_field_tag('time_entry[comments]', '', :size => 30)%>
+  <p>
+    <%= submit_tag l(:button_save), :name => nil %>
+    <%= link_to_function(l(:button_cancel), nil) do |page|
+          page.visual_effect(:toggle_appear, "new_time_entry_form")
+          page.visual_effect(:toggle_appear, "report_menu_options")
+        end %>
+  </p>
+</div>
