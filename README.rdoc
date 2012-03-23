@@ -28,6 +28,11 @@ There are some permissions which can be set up for every role from the Administr
 It's very easy to use, click the 'Spent time' link in the top left menu, from there you will be able to do queries and add entries. 
 After doing a query, if there are time entries in the result, you will be able to modify or delete them.
 
+== Work to-do
+
+Well, there are some things that are not implemented, for example, there aren't validations for missing fields 
+in the create time entry form. Also a bulk time entry creation page is in progress.
+
 == License
 
 This plugin is licensed under the {Apache License, Version 2.0}[http://www.apache.org/licenses/LICENSE-2.0.html].
