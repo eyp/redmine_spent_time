@@ -1,6 +1,6 @@
 = redmine_spent_time
 
-This is a Redmine's plugin which allow users to add spent time entries for issues they have worked on. 
+This is a {Redmine}[http://www.redmine.org]'s plugin which allow users to add spent time entries for issues they have worked on. 
 It gives users a comfortable form to do queries about their spent time on projects, along with a little form
 to submit new entries. Of course also it's possible to delete entries and to modify existing ones.
 
