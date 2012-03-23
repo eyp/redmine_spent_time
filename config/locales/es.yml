@@ -8,3 +8,5 @@ es:
   select_issues_option: "Seleccione una Petici&oacute;n"
   issue_not_exists: "Tarea inexistente"
   select_project_option: "Seleccione un proyecto"
+  label_person: "Usuario"
+
