@@ -12,27 +12,27 @@ has already spent some time but are not assigned to him.
 1. Go to your redmine root path/vendor/plugins.
 2. At the command line type 'git clone https://github.com/eyp/redmine_spent_time.git'.
 3. Restart your Redmine web servers (e.g. mongrel, thin, mod_rails).
-4. Login and configure the plugin (Administration > Roles and permissions > Configure permissions for every role).
-5. Click the _Spent time_ link in the top left menu.
+4. Login and configure the plugin (see Permissions section.)
+5. Click the 'Spent time' link in the top left menu.
 
 == Permissions
 
-There are some permissions which can be set up for every role.
+There are some permissions which can be set up for every role from the Administration -> Roles and permissions.
 
-* Time tracking -> _View spent time_: Activated by default, it allows the user to go to this plugin's main page.
-* Project -> _View others spent time_: Deactivated by default, it allows the user to view the time spent of other members of the projects his is member of.
-* Project -> _View every project spent time_: Deactivated by default, it allows to view the spent time of everyone.
+* Time tracking -> 'View spent time': Activated by default, it allows the user to go to this plugin's main page.
+* Project -> 'View others spent time': Deactivated by default, it allows the user to view the time spent of other members of the projects his is member of.
+* Project -> 'View every project spent time': Deactivated by default, it allows to view the spent time of everyone.
 
 == Usage
 
-It's very easy to use, click the _Spent time_ link in the top left menu, from there you will be able to do queries and add entries. 
+It's very easy to use, click the 'Spent time' link in the top left menu, from there you will be able to do queries and add entries. 
 After doing a query, if there are time entries in the result, you will be able to modify or delete them.
 
 == License
 
-This plugin is licensed under the {Apache License, Version 2.0} [http://www.apache.org/licenses/LICENSE-2.0.html].
+This plugin is licensed under the {Apache License, Version 2.0}[http://www.apache.org/licenses/LICENSE-2.0.html].
 
 == Project help
 
-If you need help you can contact the maintainer at eduardo.yanez@gmail.com or create an issue in the {GitHub Issues tracker} [https://github.com/eyp/redmine_spent_time/issues].
+If you need help you can contact the maintainer at eduardo.yanez@gmail.com or create an issue in the {GitHub Issues tracker}[https://github.com/eyp/redmine_spent_time/issues].
 
