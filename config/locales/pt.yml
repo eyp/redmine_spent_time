@@ -1,0 +1,12 @@
+# Portuguese strings go here
+pt:
+  spent_time_title: "Tempo gasto"
+  label_total_time: "Tempo total"
+  label_new_entry: "Novo apontamento"
+  label_add_entry: "Adicionar"
+  weekend: "Fim de semana"
+  select_issues_option: "Selecione a tarefa"
+  issue_not_exists: "Tarefa inexistente"
+  select_project_option: "Selecione o projeto"
+  label_person: "Usuário"
+  
