@@ -1,3 +1,43 @@
-= spent_time
+= redmine_spent_time
 
-Description goes here
+This is a {Redmine}[http://www.redmine.org]'s plugin which allow users to add spent time entries for issues they have worked on. 
+It gives users a comfortable form to do queries about their spent time on projects, along with a little form
+to submit new entries. Of course also it's possible to delete entries and to modify existing ones.
+
+From this functionality a user will be able to add time entries to assigned issues or to issues which he
+has already spent some time but are not assigned to him.
+
+== Installation
+
+1. Go to your redmine root path/vendor/plugins.
+2. At the command line type 'git clone https://github.com/eyp/redmine_spent_time.git'.
+3. Restart your Redmine web servers (e.g. mongrel, thin, mod_rails).
+4. Login and configure the plugin (see Permissions section.)
+5. Click the 'Spent time' link in the top left menu.
+
+== Permissions
+
+There are some permissions which can be set up for every role from the Administration -> Roles and permissions.
+
+* Time tracking -> 'View spent time': Activated by default, it allows the user to go to this plugin's main page.
+* Project -> 'View others spent time': Deactivated by default, it allows the user to view the time spent of other members of the projects his is member of.
+* Project -> 'View every project spent time': Deactivated by default, it allows to view the spent time of everyone.
+
+== Usage
+
+It's very easy to use, click the 'Spent time' link in the top left menu, from there you will be able to do queries and add entries. 
+After doing a query, if there are time entries in the result, you will be able to modify or delete them.
+
+== Work to-do
+
+Well, there are some things that are not implemented, for example, there aren't validations for missing fields 
+in the create time entry form. Also a bulk time entry creation page is in progress.
+
+== License
+
+This plugin is licensed under the {Apache License, Version 2.0}[http://www.apache.org/licenses/LICENSE-2.0.html].
+
+== Project help
+
+If you need help you can contact the maintainer at eduardo.yanez@gmail.com or create an issue in the {GitHub Issues tracker}[https://github.com/eyp/redmine_spent_time/issues].
+
