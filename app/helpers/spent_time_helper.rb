@@ -14,10 +14,29 @@ module SpentTimeHelper
       @assigned_issues = Issue.find(:all,
                           :conditions => ["(assigned_to_id=? or time_entries.user_id=?) AND #{IssueStatus.table_name}.is_closed=? AND #{Project.table_name}.status=#{Project::STATUS_ACTIVE} AND #{Project.table_name}.id=?", @user.id, @user.id, false, @project.id],
                           :include => [ :status, :project, :tracker, :priority, :time_entries ],
-                          :order => "#{Enumeration.table_name}.position DESC, #{Issue.table_name}.updated_on DESC",
+                          :order => "#{Issue.table_name}.id DESC, #{Issue.table_name}.updated_on DESC",
                           :group => "issues.id")
     end
     @assigned_issues
+  end
+
+  # Returns the list of type of activities ordered by name
+  def activities_for_select
+      collection = activity_collection_for_select_options
+      # Gets & removes the first element (--Please select)
+      first = collection.shift
+      ordered_collection = []
+      # Add 'select' label
+      ordered_collection << first
+      # Order the rest of elements & add them to the collection
+      ordered_collection.concat(collection.sort { |a, b| a <=> b })
+      ordered_collection
+  end
+
+  # Returns the users' projects ordered by name
+  def user_projects_ordered
+      projects = @user.projects.sort {|a,b| a.name <=> b.name}
+      projects
   end
 
   # Make the spent time report between two dates for a given user

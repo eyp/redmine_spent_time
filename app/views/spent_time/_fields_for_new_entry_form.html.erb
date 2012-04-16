@@ -9,7 +9,7 @@
   <%= l(:label_date) %>
   <%= text_field_tag('time_entry_spent_on', '', :size => 10) %> <%= calendar_for('time_entry_spent_on') %>
   <%= l(:label_activity) %>
-  <%= select(:time_entry, :activity_id, activity_collection_for_select_options)%>
+  <%= select(:time_entry, :activity_id, activities_for_select)%>
   <%= l(:field_hours) %>
   <%= text_field_tag('time_entry[hours]', '', :size => 6)%>
   <%= l(:field_comments) %>

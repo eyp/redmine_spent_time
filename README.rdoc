@@ -33,6 +33,10 @@ After doing a query, if there are time entries in the result, you will be able t
 Well, there are some things that are not implemented, for example, there aren't validations for missing fields 
 in the create time entry form. Also a bulk time entry creation page is in progress.
 
+== Credits
+@lauer (Jesper Grann Laursen): For adding support for Redmine 1.4.
+@heslei (Heslei Silva): For adding Portuguese translation.
+
 == License
 
 This plugin is licensed under the {Apache License, Version 2.0}[http://www.apache.org/licenses/LICENSE-2.0.html].
@@ -40,4 +44,15 @@ This plugin is licensed under the {Apache License, Version 2.0}[http://www.apach
 == Project help
 
 If you need help you can contact the maintainer at eduardo.yanez@gmail.com or create an issue in the {GitHub Issues tracker}[https://github.com/eyp/redmine_spent_time/issues].
+
+== Release notes
+<b>1.1.0 - 2012-04-16</b> 
+* Added routes compatibles with Redmine 1.4 (@lauer)
+* Added Portuguese translation (@heslei)
+* New time entry form: Projects list ordered alphabetically
+* New time entry form: Issues list ordered by Id & Last update
+* New time entry form: Activity list ordered alphabetically
+
+<b>1.0.2 - 2012-03-21</b> 
+* First public release
 

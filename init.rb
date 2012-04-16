@@ -3,8 +3,8 @@ require 'redmine'
 Redmine::Plugin.register :redmine_spent_time do
   name 'Redmine Spent Time plugin'
   author 'Eduardo Yáñez Parareda'
-  description 'Plugin para cargar y ver las horas que cada uno carga para todos los proyectos'
-  version '1.0.2'
+  description 'Redmine\'s plugin to show and load projects\' spent time'
+  version '1.1.0'
 
   permission :view_spent_time, {:spent_time => [:index]}, :public => true
   permission :view_others_spent_time, {:spent_time => [:index]}
@@ -17,7 +17,7 @@ Redmine::Plugin.register :redmine_spent_time do
        :if => Proc.new{ User.current.logged? })
 end
 
-# Esto es para que se recarguen las clases del plugin entre request
+# Reload classes between requests
 ActiveSupport::Dependencies.load_once_paths.delete(File.expand_path(File.dirname(__FILE__))+'/lib')
 ActiveSupport::Dependencies.load_once_paths.delete(File.expand_path(File.dirname(__FILE__))+'/app/models')
 ActiveSupport::Dependencies.load_once_paths.delete(File.expand_path(File.dirname(__FILE__))+'/app/controllers')
