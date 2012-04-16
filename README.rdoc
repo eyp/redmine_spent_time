@@ -33,9 +33,9 @@ After doing a query, if there are time entries in the result, you will be able t
 Well, there are some things that are not implemented, for example, there aren't validations for missing fields 
 in the create time entry form. Also a bulk time entry creation page is in progress.
 
-== Credits
-@lauer (Jesper Grann Laursen): For adding support for Redmine 1.4.
-@heslei (Heslei Silva): For adding Portuguese translation.
+== Contributors
+* @lauer (Jesper Grann Laursen): For adding support for Redmine 1.4.
+* @heslei (Heslei Silva): For adding Portuguese translation.
 
 == License
 
