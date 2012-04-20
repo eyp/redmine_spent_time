@@ -2,7 +2,7 @@
     <%= stylesheet_link_tag 'spent_time', :plugin => 'redmine_spent_time' %>
 <% end %>
 
-<% form_remote_tag(:url => {:action => :report}, :update => 'report') do %>
+<% form_remote_tag(:url => {:action => :report}, :update => 'report', :complete => "$('submit_report').disabled=false;") do %>
   <fieldset id="filters"><legend><h2><%= l(:label_spent_time) %></h2></legend>
     <p>
       <%= l(:label_person) %>
@@ -22,7 +22,7 @@
         <%= l(:label_date_to) %>
         <%= text_field_tag 'to', @to, :size => 10 %> <%= calendar_for('to') %>
       </span>
-      <%= submit_tag l(:button_apply), :name => nil %>
+      <%= submit_tag l(:button_apply), :name => nil, :id => "submit_report" %>
     </p>
   </fieldset>
 <% end %>
