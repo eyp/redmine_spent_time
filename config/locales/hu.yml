@@ -1,0 +1,12 @@
+# Hungarian strings go here
+hu:
+  spent_time_title: "Ráfordított idő"
+  label_total_time: "Összes idő"
+  label_new_entry: "Idő rögzítés"
+  label_add_entry: "Új bejegyzés"
+  weekend: "Hétvége"
+  select_issues_option: "Hiba kiválasztása"
+  issue_not_exists: "Nincs hiba megadva"
+  select_project_option: "Projekt kiválasztása"
+  label_person: "Felhasználó"
+  
