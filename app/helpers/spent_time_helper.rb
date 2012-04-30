@@ -12,10 +12,9 @@ module SpentTimeHelper
       @assigned_issues = []
     else
       @assigned_issues = Issue.find(:all,
-                          :conditions => ["(assigned_to_id=? or time_entries.user_id=?) AND #{IssueStatus.table_name}.is_closed=? AND #{Project.table_name}.status=#{Project::STATUS_ACTIVE} AND #{Project.table_name}.id=?", @user.id, @user.id, false, @project.id],
+                          :conditions => ["(#{Issue.table_name}.assigned_to_id=? or #{TimeEntry.table_name}.user_id=?) AND #{IssueStatus.table_name}.is_closed=? AND #{Project.table_name}.status=#{Project::STATUS_ACTIVE} AND #{Project.table_name}.id=?", @user.id, @user.id, false, @project.id],
                           :include => [ :status, :project, :tracker, :priority, :time_entries ],
-                          :order => "#{Issue.table_name}.id DESC, #{Issue.table_name}.updated_on DESC",
-                          :group => "issues.id")
+                          :order => "#{Issue.table_name}.id DESC, #{Issue.table_name}.updated_on DESC")
     end
     @assigned_issues
   end
