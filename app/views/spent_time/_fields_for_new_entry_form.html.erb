@@ -1,10 +1,11 @@
 <div id='fields_for_new_entry_form'>
+
   <%= l(:label_issue) %>
-  <% if (@assigned_issues.empty?) %>
-    <%= select_tag('time_entry[issue_id]', "<option value='-1'>-#{l(:select_issues_option)}</option>") %>
+  <% if (@project.blank?) %>
+    <%= select_tag('issue_id', "<option value='-1'>-</option>") %>
   <% else %>
-    <%= select_tag('time_entry[issue_id]',
-                   options_for_select(@assigned_issues.collect { |i| ["##{i.id} - #{i.subject}", i.id] })) %>
+    <%= select_tag('issue_id',
+                   options_for_select([[l(:select_issues_option), 0]] + @assigned_issues.collect { |i| ["##{i.id} - #{i.subject}", i.id] })) %>
   <% end -%>
   <%= l(:label_date) %>
   <%= text_field_tag('time_entry_spent_on', '', :size => 10) %> <%= calendar_for('time_entry_spent_on') %>
