@@ -4,7 +4,7 @@
     <% form_remote_tag(:url => {:action => :create_entry, :from => @from, :to => @to}) do -%>
       <p>
         <%= l(:label_project) %>
-        <%= select_tag(:select_project, "<option value='-1'>-#{l(:select_project_option)}</option>" +
+        <%= select_tag('project_id', "<option value='-1'>-#{l(:select_project_option)}</option>" +
                        options_from_collection_for_select(user_projects_ordered, 'id', 'name'),
                        {:onchange => remote_function(:url => {:action => :update_project_issues},
                                                      :with => 'Form.Element.serialize(this)')})%>
