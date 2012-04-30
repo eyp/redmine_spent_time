@@ -4,7 +4,7 @@ Redmine::Plugin.register :redmine_spent_time do
   name 'Redmine Spent Time plugin'
   author 'Eduardo Yáñez Parareda'
   description 'Redmine\'s plugin to show and load projects\' spent time'
-  version '1.1.0'
+  version '1.2.0'
 
   permission :view_spent_time, {:spent_time => [:index]}, :public => true
   permission :view_others_spent_time, {:spent_time => [:index]}
