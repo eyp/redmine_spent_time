@@ -67,9 +67,15 @@ class SpentTimeController < ApplicationController
     @to = params[:to].to_s.to_date
 
     # Save the new record
-    @issue = Issue.find(params[:time_entry][:issue_id])
-    @project = @issue.project
-    @time_entry ||= TimeEntry.new(:project => @project, :issue => @issue, :user => @user)
+    begin
+      @issue = Issue.find(params[:issue_id])
+      @project = @issue.project
+      @time_entry ||= TimeEntry.new(:project => @project, :issue => @issue, :user => @user)
+    rescue
+      @project = Project.find(params[:project_id]);
+      @time_entry ||= TimeEntry.new(:project => @project, :user => @user)
+    end
+
     @time_entry.attributes = params[:time_entry]
     render_403 and return if @time_entry && !@time_entry.editable_by?(@user)
     @time_entry.user = @user
@@ -88,7 +94,7 @@ class SpentTimeController < ApplicationController
 
   # Update the project's issues when another project is selected
   def update_project_issues
-    find_assigned_issues_by_project(params[:select_project])
+    find_assigned_issues_by_project(params[:project_id])
     render :update do |page|
       page.replace_html "fields_for_new_entry_form", :partial => "fields_for_new_entry_form"
     end
