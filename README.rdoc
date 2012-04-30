@@ -28,14 +28,10 @@ There are some permissions which can be set up for every role from the Administr
 It's very easy to use, click the 'Spent time' link in the top left menu, from there you will be able to do queries and add entries. 
 After doing a query, if there are time entries in the result, you will be able to modify or delete them.
 
-== Work to-do
-
-Well, there are some things that are not implemented, for example, there aren't validations for missing fields 
-in the create time entry form. Also a bulk time entry creation page is in progress.
-
 == Contributors
 * @lauer (Jesper Grann Laursen): For adding support for Redmine 1.4.
 * @heslei (Heslei Silva): For adding Portuguese translation.
+* @burci (Peter Buri): For several changes, bug fixes and Hungarian translation made for version 1.2.0.
 
 == License
 
@@ -46,6 +42,12 @@ This plugin is licensed under the {Apache License, Version 2.0}[http://www.apach
 If you need help you can contact the maintainer at eduardo.yanez@gmail.com or create an issue in the {GitHub Issues tracker}[https://github.com/eyp/redmine_spent_time/issues].
 
 == Release notes
+<b>1.2.0 - 2012-04-30</b> 
+* Added Hungarian translation (@burci)
+* Now is possible to add time entries to projects without selecting an issue (@burci)
+* Fix: 'Apply' button from query form was disabled after querying by dates (@burci)
+* Fix: Query used GROUP BY in a non-standard way that caused Postgres didn't work right (@burci)
+
 <b>1.1.0 - 2012-04-16</b> 
 * Added routes compatibles with Redmine 1.4 (@lauer)
 * Added Portuguese translation (@heslei)
