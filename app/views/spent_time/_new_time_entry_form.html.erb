@@ -1,7 +1,7 @@
 <div id='new_time_entry_form' style='display:none;'>
   <fieldset>
     <legend><%= l(:label_new_entry) %></legend>
-    <% form_remote_tag(:url => {:action => :create_entry, :from => @from, :to => @to}) do -%>
+    <%= form_remote_tag(:url => {:action => :create_entry, :from => @from, :to => @to}) do -%>
       <p>
         <%= l(:label_project) %>
         <%= select_tag('project_id', "<option value='-1'>-#{l(:select_project_option)}</option>" +
