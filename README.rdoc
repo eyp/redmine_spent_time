@@ -33,9 +33,11 @@ It's very easy to use, click the 'Spent time' link in the top left menu, from th
 After doing a query, if there are time entries in the result, you will be able to modify or delete them.
 
 == Contributors
-* @lauer (Jesper Grann Laursen): For adding support for Redmine 1.4.
-* @heslei (Heslei Silva): For adding Portuguese translation.
-* @burci (Peter Buri): For several changes, bug fixes and Hungarian translation made for version 1.2.0.
+* @lauer (Jesper Grann Laursen)
+* @heslei (Heslei Silva)
+* @burci (Peter Buri)
+* @mjanser (Martin Janser)
+* @pedrosnk
 
 == License
 
