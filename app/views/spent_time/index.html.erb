@@ -2,7 +2,7 @@
     <%= stylesheet_link_tag 'spent_time', :plugin => 'redmine_spent_time' %>
 <% end %>
 
-<% form_remote_tag(:url => {:action => :report}, :update => 'report', :complete => "$('submit_report').disabled=false;") do %>
+<%= form_remote_tag(:url => {:action => :report}, :update => 'report', :complete => "$('submit_report').disabled=false;") do %>
   <fieldset id="filters"><legend><h2><%= l(:label_spent_time) %></h2></legend>
     <p>
       <%= l(:label_person) %>

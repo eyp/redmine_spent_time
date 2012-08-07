@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'redmine'
 
 Redmine::Plugin.register :redmine_spent_time do
@@ -17,8 +18,3 @@ Redmine::Plugin.register :redmine_spent_time do
        :if => Proc.new{ User.current.logged? })
 end
 
-# Reload classes between requests
-ActiveSupport::Dependencies.load_once_paths.delete(File.expand_path(File.dirname(__FILE__))+'/lib')
-ActiveSupport::Dependencies.load_once_paths.delete(File.expand_path(File.dirname(__FILE__))+'/app/models')
-ActiveSupport::Dependencies.load_once_paths.delete(File.expand_path(File.dirname(__FILE__))+'/app/controllers')
-ActiveSupport::Dependencies.load_once_paths.delete(File.expand_path(File.dirname(__FILE__))+'/app/helpers')
