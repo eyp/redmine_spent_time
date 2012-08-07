@@ -37,7 +37,7 @@ After doing a query, if there are time entries in the result, you will be able t
 * @heslei (Heslei Silva)
 * @burci (Peter Buri)
 * @mjanser (Martin Janser)
-* @pedrosnk
+* @pedrosnk (Pedro Medeiros)
 
 == License
 
