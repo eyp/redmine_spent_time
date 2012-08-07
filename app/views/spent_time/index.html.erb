@@ -6,7 +6,7 @@
   <fieldset id="filters"><legend><h2><%= l(:label_spent_time) %></h2></legend>
     <p>
       <%= l(:label_person) %>
-      <%= select_tag(:user, options_from_collection_for_select(@users, 'id', 'name'))%>
+      <%= select_tag(:user, options_from_collection_for_select(@users, 'id', 'name', @user.id))%>
     </p>
     <p>
       <%= radio_button_tag 'period_type', '1', !@free_period %>
