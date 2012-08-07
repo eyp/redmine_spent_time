@@ -1,5 +1,9 @@
 = redmine_spent_time
 
+<b>Only for Redmine 2 or above</b>
+
+For Redmine 1.4.X go to {redmine_spent_time-1.4}[https://github.com/eyp/redmine_spent_time-1.4] repository.
+
 This is a {Redmine}[http://www.redmine.org]'s plugin which allow users to add spent time entries for issues they have worked on. 
 It gives users a comfortable form to do queries about their spent time on projects, along with a little form
 to submit new entries. Of course also it's possible to delete entries and to modify existing ones.
