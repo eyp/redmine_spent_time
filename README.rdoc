@@ -38,6 +38,7 @@ After doing a query, if there are time entries in the result, you will be able t
 * @burci (Peter Buri)
 * @mjanser (Martin Janser)
 * @pedrosnk (Pedro Medeiros)
+* @krewetka (Ania Krawet)
 
 == License
 
@@ -48,6 +49,13 @@ This plugin is licensed under the {Apache License, Version 2.0}[http://www.apach
 If you need help you can contact the maintainer at eduardo.yanez@gmail.com or create an issue in the {GitHub Issues tracker}[https://github.com/eyp/redmine_spent_time/issues].
 
 == Release notes
+<b>2.1.0 - 2012-08-16</b> 
+* Fix: Projects combo-box didn't work in new entry form (@krewetka)
+* Fix: Issues combo-box didn't work in new entry form
+* Query form compacted
+* New entry form shown by default
+* Default date is today in the new entry form when today is between the report's interval
+
 <b>2.0.0 - 2012-08-07</b> 
 * Adapted to Redmine 2 (@pedrosnk)
 * Added German translation (@mjanser)
