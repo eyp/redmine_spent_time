@@ -18,7 +18,7 @@
   <p>
     <%= submit_tag l(:button_save), :name => nil %>
     <%= link_to_function(l(:button_cancel), nil) do |page|
-          page.visual_effect(:toggle_appear, "new_time_entry_form")
+          page.visual_effect(:toggle_blind, "new_time_entry_form")
           page.visual_effect(:toggle_appear, "report_menu_options")
         end %>
   </p>
