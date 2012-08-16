@@ -9,4 +9,5 @@ en:
   issue_not_exists: "Issue Not Exists"
   select_project_option: "Select Project"
   label_person: "User"
+  label_interval: "Interval"
   

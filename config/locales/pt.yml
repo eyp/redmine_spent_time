@@ -9,4 +9,5 @@ pt:
   issue_not_exists: "Tarefa inexistente"
   select_project_option: "Selecione o projeto"
   label_person: "Usuário"
+  label_interval: "Intervalo"
   

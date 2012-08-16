@@ -9,4 +9,5 @@ es:
   issue_not_exists: "Tarea inexistente"
   select_project_option: "Seleccione un proyecto"
   label_person: "Usuario"
+  label_interval: "Intervalo"
 

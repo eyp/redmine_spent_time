@@ -9,4 +9,5 @@ hu:
   issue_not_exists: "Nincs hiba megadva"
   select_project_option: "Projekt kiválasztása"
   label_person: "Felhasználó"
+  label_interval: "Intervallum"
   
