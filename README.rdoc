@@ -49,10 +49,14 @@ This plugin is licensed under the {Apache License, Version 2.0}[http://www.apach
 If you need help you can contact the maintainer at eduardo.yanez@gmail.com or create an issue in the {GitHub Issues tracker}[https://github.com/eyp/redmine_spent_time/issues].
 
 == Release notes
+<b>2.2.1 - 2012-08-17</b>
+* Fix: New entry form hidden when the query is for another user
+* Fixed Polish translation (@krewetka)
+
 <b>2.2.0 - 2012-08-17</b>
 * Fix: Issues combo-box was not updated when the projects selection changed
 * Project selected by default when there is only one 
-* Added Poland translation
+* Added Polish translation
 * Added Catalán translation
 * Added French translation
 

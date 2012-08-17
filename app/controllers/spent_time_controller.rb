@@ -101,18 +101,4 @@ class SpentTimeController < ApplicationController
       page.replace_html "fields_for_new_entry_form", :partial => "fields_for_new_entry_form"
     end
   end
-
-  # Update the users' combobox after changing the project
-  def update_users_select
-    if Project.exists?(params[:value])
-      project = Project.find(params[:value])
-      @users = project.users
-    else
-      @users = User.find(:all, :conditions => ["status = 1"])
-    end
-
-    render :update do |page|
-      page.replace_html "people_select", :partial => "people_select"
-    end
-  end
 end
