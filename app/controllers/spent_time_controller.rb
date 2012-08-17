@@ -94,6 +94,8 @@ class SpentTimeController < ApplicationController
 
   # Update the project's issues when another project is selected
   def update_project_issues
+    @to = params[:to].to_date
+    @from = params[:from].to_date
     find_assigned_issues_by_project(params[:project_id])
     render :update do |page|
       page.replace_html "fields_for_new_entry_form", :partial => "fields_for_new_entry_form"
