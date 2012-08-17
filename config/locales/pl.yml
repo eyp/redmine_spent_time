@@ -1,0 +1,12 @@
+# Poland strings go here
+pl:
+  spent_time_title: "Godziny obciążenia"
+  label_total_time: "Łączny czas"
+  label_new_entry: "Nowy wpis"
+  label_add_entry: "Dodaj wpis"
+  weekend: "Koniec tygodnia"
+  select_issues_option: "Wybierz emisji"
+  issue_not_exists: "Nie istnieje problem"
+  select_project_option: "Wybierz Projekt"
+  label_person: "Użytkownik"
+  label_interval: "Interval" 

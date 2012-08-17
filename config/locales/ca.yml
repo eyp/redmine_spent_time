@@ -1,0 +1,12 @@
+# Catalán strings go here
+ca:
+  spent_time_title: "Temps dedicat"
+  label_total_time: "Temps total"
+  label_new_entry: "Nova entrada"
+  label_add_entry: "Afegir entrada"
+  weekend: "Cap de setmana"
+  select_issues_option: "Seleccioneu Edició"
+  issue_not_exists: "No és problema existeix"
+  select_project_option: "Seleccioneu el Projecte"
+  label_person: "Usuari"
+  label_interval: "Interval"

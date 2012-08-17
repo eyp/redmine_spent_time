@@ -1,0 +1,12 @@
+# French strings go here
+fr:
+  spent_time_title: "Le temps passé"
+  label_total_time: "Dépenses totales"
+  label_new_entry: "Nouvelle entrée"
+  label_add_entry: "Ajouter une entrée"
+  weekend: "Weekend"
+  select_issues_option: "Sélectionnez Ticket"
+  issue_not_exists: "Pas de ticket"
+  select_project_option: "Sélectionner le projet"
+  label_person: "Utilisateurs"
+  label_interval: "Intervalle"
