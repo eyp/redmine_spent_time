@@ -1,7 +1,7 @@
 <div id='new_time_entry_form' <%= "style='display:none'" unless @same_user %>>
   <fieldset>
     <legend><%= l(:label_new_entry) %></legend>
-    <%= form_remote_tag(:url => {:action => :create_entry, :from => @from, :to => @to}) do -%>
+    <%= form_tag(create_entry_spent_time_path(:from => @from, :to => @to), :remote => true) do -%>
       <p>
         <%= l(:label_project) %>
         <% if (user_projects_ordered.length == 1) 

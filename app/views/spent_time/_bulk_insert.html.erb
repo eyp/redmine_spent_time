@@ -1,5 +1,5 @@
 <div id='new_entries_form'  style='display:none;'>
-  <%= form_remote_tag(:url => {:action => :dates_for_create_entries}, :update => 'new_entries_dates') do %>
+  <%= form_tag(:url => {:action => :dates_for_create_entries}, :remote => true, :update => 'new_entries_dates') do %>
     <p>
       <%= l(:label_issue) %>
     </p>
@@ -12,7 +12,7 @@
     </p>
   <% end %>
   <div id="new_entries_dates">
-    <%= form_remote_tag(:url => {:action => :create_entries}) do %>
+    <%= form_tag(:url => {:action => :create_entries}, :remote => true) do %>
     <% end %>
   </div>
 </div>

@@ -49,6 +49,9 @@ This plugin is licensed under the {Apache License, Version 2.0}[http://www.apach
 If you need help you can contact the maintainer at eduardo.yanez@gmail.com or create an issue in the {GitHub Issues tracker}[https://github.com/eyp/redmine_spent_time/issues].
 
 == Release notes
+<b>2.3.0 - 2012-08-20</b>
+* Removed dependencies with 'remote' helpers from Prototype library to be compatible with Redmine 2.1  
+
 <b>2.2.1 - 2012-08-17</b>
 * Fix: New entry form hidden when the query is for another user
 * Fixed Polish translation (@krewetka)

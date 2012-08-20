@@ -5,10 +5,11 @@
   <td class="issue-hours"><%= html_hours("%.2f" % entry.hours) %></td>
   <td align="center">
   <% if entry.editable_by?(@user) -%>
-      <%= link_to image_tag('edit.png'), {:controller => 'timelog', :action => 'edit', :id => entry},
-                                         :title => l(:button_edit) %>
-      <%= link_to_remote(image_tag('delete.png'), :url => {:action => 'destroy_entry', :id => entry.id, :from => @from, :to => @to},
-                                           :confirm => l(:text_are_you_sure)) %>
+      <%= link_to(image_tag('edit.png'), {:controller => 'timelog', :action => 'edit', :id => entry},
+                  :title => l(:button_edit)) %>
+      <%= link_to(image_tag('delete.png'), {:controller => 'spent_time', :action => 'destroy_entry', :id => entry.id, :from => @from, :to => @to}, 
+                  :remote => true,
+                  :confirm => l(:text_are_you_sure)) %>
   <% end -%>
   </td>
 </tr>

@@ -1,4 +1,4 @@
-<%= form_remote_tag(:url => {:action => :create_entries}) do %>
+<%= form_tag(:url => {:action => :create_entries}, :remote => true) do %>
   <p>
     <%= l(:label_issue) %>
     <%= select_tag 'issue', options_for_select(@assigned_issues.collect {|issue| ["##{issue.id} - #{issue.subject}", issue.id]}) %>
