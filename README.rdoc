@@ -13,8 +13,8 @@ has already spent some time but are not assigned to him.
 
 == Installation
 
-1. Go to your redmine root path/vendor/plugins.
-2. At the command line type 'git clone https://github.com/eyp/redmine_spent_time.git'.
+1. Go to your redmine root path/plugins.
+2. At the command line type <tt>git clone https:// github.com/eyp/redmine_spent_time.git</tt>.
 3. Restart your Redmine web servers (e.g. mongrel, thin, mod_rails).
 4. Login and configure the plugin (see Permissions section.)
 5. Click the 'Spent time' link in the top left menu.
