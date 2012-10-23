@@ -17,9 +17,6 @@
   <%= text_field_tag('time_entry[comments]', '', :size => 30)%>
   <p>
     <%= submit_tag l(:button_save), :name => nil %>
-    <%= link_to_function(l(:button_cancel), nil) do |page|
-          page.visual_effect(:toggle_blind, "new_time_entry_form")
-          page.visual_effect(:toggle_appear, "report_menu_options")
-        end %>
+    <%= link_to_function(l(:button_cancel), "$('#new_time_entry_form').toggle();$('#report_menu_options').toggle();".html_safe) %>
   </p>
 </div>

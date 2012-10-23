@@ -34,8 +34,8 @@ class SpentTimeController < ApplicationController
     make_time_entry_report(params[:from], params[:to], params[:user])
     another_user = User.find(params[:user])
     @same_user = (@user.id == another_user.id)
-    render :update do |page|
-      page.replace_html 'report', :partial => 'report'
+    respond_to do |format|
+      format.js
     end
   end
 
@@ -97,8 +97,8 @@ class SpentTimeController < ApplicationController
     @to = params[:to].to_date
     @from = params[:from].to_date
     find_assigned_issues_by_project(params[:project_id])
-    render :update do |page|
-      page.replace_html "fields_for_new_entry_form", :partial => "fields_for_new_entry_form"
+    respond_to do |format|
+      format.js
     end
   end
 end
