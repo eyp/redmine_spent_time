@@ -1,6 +1,6 @@
 = redmine_spent_time
 
-<b>Only for Redmine 2.0.X, for now is not compatible with Redmine 2.1.X</b>
+<b>Only for Redmine 2.0.X and above</b>
 
 For Redmine 1.4.X go to {redmine_spent_time-1.4}[https://github.com/eyp/redmine_spent_time-1.4] repository.
 
