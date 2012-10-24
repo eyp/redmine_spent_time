@@ -32,13 +32,27 @@ There are some permissions which can be set up for every role from the Administr
 It's very easy to use, click the 'Spent time' link in the top left menu, from there you will be able to do queries and add entries. 
 After doing a query, if there are time entries in the result, you will be able to modify or delete them.
 
+== Languages ==
+
+* Catalonian
+* English
+* French
+* German
+* Hungarian
+* Polish
+* Portuguese
+* Simplified Chinese
+* Spanish
+
 == Contributors
+
 * @lauer (Jesper Grann Laursen)
 * @heslei (Heslei Silva)
 * @burci (Peter Buri)
 * @mjanser (Martin Janser)
 * @pedrosnk (Pedro Medeiros)
 * @krewetka (Ania Krawet)
+* @archonwang (Steven W.)
 
 == License
 
@@ -49,6 +63,9 @@ This plugin is licensed under the {Apache License, Version 2.0}[http://www.apach
 If you need help you can contact the maintainer at eduardo.yanez@gmail.com or create an issue in the {GitHub Issues tracker}[https://github.com/eyp/redmine_spent_time/issues].
 
 == Release notes
+<b>2.4.1 - 2012-10-24</b>
+* Added Simplified Chinese translation (@archonwang)
+
 <b>2.4.0 - 2012-10-23</b>
 * Replaced all references to prototype and scriptaculous helpers for jQuery.
 * Compatible with Redmine 2.1
