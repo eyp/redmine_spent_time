@@ -32,7 +32,7 @@ There are some permissions which can be set up for every role from the Administr
 It's very easy to use, click the 'Spent time' link in the top left menu, from there you will be able to do queries and add entries. 
 After doing a query, if there are time entries in the result, you will be able to modify or delete them.
 
-== Languages ==
+== Languages
 
 * Catalonian
 * English
