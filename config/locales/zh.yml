@@ -1,0 +1,15 @@
+# Simplified Chinese strings go here for Rails i18n
+# Author: Steven.W
+# Based on file: en.yml
+
+zh:
+  spent_time_title: "工时统计"
+  label_total_time: "总计工时"
+  label_new_entry: "新增工时项"
+  label_add_entry: "新增工时项"
+  weekend: "周末"
+  select_issues_option: "选择事务"
+  issue_not_exists: "事务不存在。"
+  select_project_option: "选择项目"
+  label_person: "用户"
+  label_interval: "间隔"    
