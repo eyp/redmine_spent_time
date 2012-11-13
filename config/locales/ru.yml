@@ -1,5 +1,5 @@
 # English strings go here
-en:
+ru:
   spent_time_title: "Отчет по времени"
   label_total_time: "Всего"
   label_new_entry: "Новая запись"
@@ -10,4 +10,3 @@ en:
   select_project_option: "Выберите проект"
   label_person: "Пользователь"
   label_interval: "Интервал"
-  
