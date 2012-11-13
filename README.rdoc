@@ -45,15 +45,22 @@ After doing a query, if there are time entries in the result, you will be able t
 * Simplified Chinese
 * Spanish
 
-== Contributors
+== Code contributors
 
 * @lauer (Jesper Grann Laursen)
-* @heslei (Heslei Silva)
 * @burci (Peter Buri)
 * @mjanser (Martin Janser)
 * @pedrosnk (Pedro Medeiros)
 * @krewetka (Ania Krawet)
-* @archonwang (Steven W.)
+
+== Translators
+
+* @heslei (Heslei Silva): Portuguese
+* @mjanser (Martin Janser): German
+* @burci (Peter Buri): Hungarian
+* @krewetka (Ania Krawet): Polish
+* @ilya-yurtaev (Ilya Yurtaev): Russian
+* @archonwang (Steven W.): Simplified Chinese
 
 == License
 
@@ -64,6 +71,9 @@ This plugin is licensed under the {Apache License, Version 2.0}[http://www.apach
 If you need help you can contact the maintainer at eduardo.yanez@gmail.com or create an issue in the {GitHub Issues tracker}[https://github.com/eyp/redmine_spent_time/issues].
 
 == Release notes
+<b>2.4.2 - 2012-11-13</b>
+* Added Russian translation (@ilya-yurtaev)
+
 <b>2.4.1 - 2012-10-24</b>
 * Added Simplified Chinese translation (@archonwang)
 
