@@ -34,8 +34,8 @@ class SpentTimeController < ApplicationController
     make_time_entry_report(params[:from], params[:to], params[:user])
     another_user = User.find(params[:user])
     @same_user = (@user.id == another_user.id)
-    respond_to do |format|
-    	format.js
+    render :update do |page|
+      page.replace_html 'report', :partial => 'report'
     end
   end
 
