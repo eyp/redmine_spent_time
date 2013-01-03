@@ -1,0 +1,12 @@
+# English strings go here
+ru:
+  spent_time_title: "Отчет по времени"
+  label_total_time: "Всего"
+  label_new_entry: "Новая запись"
+  label_add_entry: "Добавить запись"
+  weekend: "Выходной"
+  select_issues_option: "Выберите задачу"
+  issue_not_exists: "Задача не существует"
+  select_project_option: "Выберите проект"
+  label_person: "Пользователь"
+  label_interval: "Интервал"
