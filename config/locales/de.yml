@@ -10,3 +10,8 @@ de:
   select_project_option: "Projekt auswählen"
   label_person: "Benutzer"
   label_interval: "Intervall"
+  permission_view_spent_time: "Aufgewendete Zeit anzeigen"
+  permission_view_others_spent_time: "Aufgewendete Zeit von Anderen anzeigen"
+  permission_view_every_project_spent_time: "Aufgewendete Zeit des Projekts anzeigen"
+
+
