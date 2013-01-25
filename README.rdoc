@@ -61,6 +61,7 @@ After doing a query, if there are time entries in the result, you will be able t
 * @krewetka (Ania Krawet): Polish
 * @ilya-yurtaev (Ilya Yurtaev): Russian
 * @archonwang (Steven W.): Simplified Chinese
+* @cforce (Terence Miller): General help on translations
 
 == License
 
