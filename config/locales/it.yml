@@ -1,0 +1,15 @@
+# Italian strings go here
+it:
+  spent_time_title: "Tempo Speso"
+  label_total_time: "Tempo Toale"
+  label_new_entry: "Nuova voce"
+  label_add_entry: "Aggiungi voce"
+  weekend: "Weekend"
+  select_issues_option: "Seleziona il problema"
+  issue_not_exists: "Il Problema non esiste"
+  select_project_option: "Seleziona Progetto"
+  label_person: "Utente"
+  label_interval: "Intervallo"
+  permission_view_spent_time: "Vedi il Tempo speso"
+  permission_view_others_spent_time: "Vedi altro Tempo speso"
+  permission_view_every_project_spent_time: "Vedi tutti i progetti dove hai speso tempo"
