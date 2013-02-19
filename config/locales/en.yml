@@ -10,4 +10,7 @@ en:
   select_project_option: "Select Project"
   label_person: "User"
   label_interval: "Interval"
+  permission_view_spent_time: "View spent time"
+  permission_view_others_spent_time: "View others spent time"
+  permission_view_every_project_spent_time: "View every project spent time"
   
