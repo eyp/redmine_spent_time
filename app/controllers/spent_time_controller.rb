@@ -57,6 +57,29 @@ class SpentTimeController < ApplicationController
     redirect_to :action => 'index'
   end
 
+  def update_entry
+    @time_entry = TimeEntry.find(params[:entry])
+    render_404 and return unless @time_entry
+    render_403 and return unless @time_entry.editable_by?(User.current)
+
+    @time_entry.safe_attributes = params[:time_entry]
+
+    call_hook(:controller_timelog_edit_before_save, { :params => params, :time_entry => @time_entry })
+
+    if @time_entry.save
+      respond_to do |format|
+        format.js 
+        format.json { head :ok }
+      end
+    else
+      respond_to do |format|        
+        format.js
+        format.json { respond_with_bip(@time_entry) }
+      end
+    end
+
+  end
+
   # Create a new time entry
   def create_entry
     @user = User.current

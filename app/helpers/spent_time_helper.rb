@@ -103,4 +103,10 @@ module SpentTimeHelper
     @from ||= (TimeEntry.minimum(:spent_on, :include => :project, :conditions => Project.allowed_to_condition(User.current, :view_time_entries)) || Date.today) - 1
     @to   ||= Date.today
   end
+
+  def get_activities(entry)
+    activities = []
+    entry.project.activities().each {|a| activities << [a.id, a.name]}
+    activities
+  end
 end
