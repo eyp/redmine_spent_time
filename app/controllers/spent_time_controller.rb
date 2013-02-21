@@ -58,8 +58,6 @@ class SpentTimeController < ApplicationController
   end
 
   def update_entry
-    logger.info "Logger: #{params.inspect}"
-
     @time_entry = TimeEntry.find(params[:entry])
     render_404 and return unless @time_entry
     render_403 and return unless @time_entry.editable_by?(User.current)
