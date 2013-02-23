@@ -23,6 +23,7 @@ class SpentTimeController < ApplicationController
     else
       @users = [@user]
     end
+    params[:period] ||= "7_days"    
     @users.sort! { |a, b| a.name <=> b.name }
     @assigned_issues = []
     @same_user = true
