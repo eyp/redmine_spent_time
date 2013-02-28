@@ -13,4 +13,7 @@ en:
   permission_view_spent_time: "View spent time"
   permission_view_others_spent_time: "View others spent time"
   permission_view_every_project_spent_time: "View every project spent time"
+  time_entry_added_notice: "Time entry added"
+  invalid_date_error: "Invalid date format"
+  invalid_hours_error: "Invalid hours format"
   

@@ -56,12 +56,41 @@ class SpentTimeController < ApplicationController
   rescue ::ActionController::RedirectBackError
     redirect_to :action => 'index'
   end
+  
+  # Update a time entry in line
+  def update_entry
+    @time_entry = TimeEntry.find(params[:entry])
+    render_404 and return unless @time_entry
+    render_403 and return unless @time_entry.editable_by?(User.current)
+
+    @time_entry.safe_attributes = params[:time_entry]
+
+    call_hook(:controller_timelog_edit_before_save, { :params => params, :time_entry => @time_entry })
+
+    if @time_entry.save
+      respond_to do |format|
+        format.js 
+        format.json { head :ok }
+      end
+    else
+      respond_to do |format|        
+        format.js
+        format.json { respond_with_bip(@time_entry) }
+      end
+    end
+
+  end
 
   # Create a new time entry
   def create_entry
     @user = User.current
 
-    @time_entry_date = params[:time_entry_spent_on].to_s.to_date
+    begin
+      @time_entry_date = params[:time_entry_spent_on].to_s.to_date
+    rescue
+      raise "invalid_date_error"
+    end
+    raise "invalid_hours_error" if !is_numeric?(params[:time_entry][:hours])
     params[:time_entry][:spent_on] = @time_entry_date
     @from = params[:from].to_s.to_date
     @to = params[:to].to_s.to_date
@@ -79,17 +108,23 @@ class SpentTimeController < ApplicationController
     @time_entry.attributes = params[:time_entry]
     render_403 and return if @time_entry && !@time_entry.editable_by?(@user)
     @time_entry.user = @user
-    @time_entry.save!
-
-    respond_to do |format|
-      if @time_entry_date > @to
-        @to = @time_entry_date
-      elsif @time_entry_date < @from
-        @from = @time_entry_date
+    if @time_entry.save
+      flash[:notice] = "time_entry_added_notice"
+      respond_to do |format|
+        if @time_entry_date > @to
+          @to = @time_entry_date
+        elsif @time_entry_date < @from
+          @from = @time_entry_date
+        end
+        make_time_entry_report(@from, @to, @user)
+        format.js
       end
-      make_time_entry_report(@from, @to, @user)
-      format.js
     end
+    rescue Exception => ex
+      respond_to do |format|
+        flash[:error] = ex.message
+        format.js { render 'spent_time/create_entry_error'}
+      end
   end
 
   # Update the project's issues when another project is selected
@@ -100,5 +135,11 @@ class SpentTimeController < ApplicationController
     respond_to do |format|
       format.js
     end
+  end
+
+  private
+  
+  def is_numeric?(obj) 
+   obj.to_s.match(/\A[+-]?\d+?(\.\d+)?\Z/) == nil ? false : true
   end
 end

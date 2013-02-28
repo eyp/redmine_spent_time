@@ -10,4 +10,10 @@ es:
   select_project_option: "Seleccione un proyecto"
   label_person: "Usuario"
   label_interval: "Intervalo"
+  permission_view_spent_time: "Ver Carga de Horas"
+  permission_view_others_spent_time: "Ver Carga de Horas de otros usuarios"
+  permission_view_every_project_spent_time: "Ver Carga de Horas de todos los proyectos"
+  time_entry_added_notice: "Horas añadidas correctamente"
+  invalid_date_error: "Formato de fecha incorrecto"
+  invalid_hours_error: "Formato de horas incorrecto"
 
