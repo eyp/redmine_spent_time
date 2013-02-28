@@ -7,10 +7,8 @@
         <% if (user_projects_ordered.length == 1) 
            then %>
             <%= select_tag('project_id', "<option value='#{user_projects_ordered.first.id}' selected>#{user_projects_ordered.first.name}</option>".html_safe)%>
-        <% else %>                                                     
-            <%= select_tag('project_id', "<option value='-1'>-#{l(:select_project_option)}</option>".html_safe +
-                           options_from_collection_for_select(user_projects_ordered, 'id', 'name'),
-                           {:onchange => "$.post('#{update_project_issues_spent_time_path(:from => @from, :to => @to)}', {'_method':'post', 'project_id':this.value});".html_safe})%>
+        <% else %>
+        	<%= render_project_tree %>                                                     
         <% end %>
       </p>
       <p>
