@@ -1,0 +1,64 @@
+== Release notes
+<b>2.5.0 - 2013-02-28</b>
+* Link to 'Spent time' is not shown for users who don't have permissions to acces it.
+* Added edit in-place feature for already existent time entries (@lauer)
+* Added notifications when time entries are added or when errors happen inserting new entries.
+* Default time period 'Last 7 days' (@lauer)
+* Project selection combo-box as tree (@lauer)
+* New time period 'Last 2 weeks'.
+
+<b>2.4.2 - 2012-11-13</b>
+* Added Russian translation (@ilya-yurtaev)
+
+<b>2.4.1 - 2012-10-24</b>
+* Added Simplified Chinese translation (@archonwang)
+
+<b>2.4.0 - 2012-10-23</b>
+* Replaced all references to prototype and scriptaculous helpers for jQuery.
+* Compatible with Redmine 2.1
+
+<b>2.3.1 - 2012-08-21</b>
+* Fixed main report's date selectors  
+
+<b>2.3.0 - 2012-08-20</b>
+* Removed dependencies with 'remote' helpers from Prototype library to be compatible with Redmine 2.1  
+
+<b>2.2.1 - 2012-08-17</b>
+* Fix: New entry form hidden when the query is for another user
+* Fixed Polish translation (@krewetka)
+
+<b>2.2.0 - 2012-08-17</b>
+* Fix: Issues combo-box was not updated when the projects selection changed
+* Project selected by default when there is only one 
+* Added Polish translation
+* Added Catalán translation
+* Added French translation
+
+<b>2.1.0 - 2012-08-16</b> 
+* Fix: Projects combo-box didn't work in new entry form (@krewetka)
+* Fix: Issues combo-box didn't work in new entry form
+* Query form compacted
+* New entry form shown by default
+* Default date is today in the new entry form when today is between the report's interval
+
+<b>2.0.0 - 2012-08-07</b> 
+* Adapted to Redmine 2 (@pedrosnk)
+* Added German translation (@mjanser)
+* Select current user by default (@mjanser)
+
+<b>1.2.0 - 2012-04-30</b> 
+* Added Hungarian translation (@burci)
+* Now is possible to add time entries to projects without selecting an issue (@burci)
+* Fix: 'Apply' button from query form was disabled after querying by dates (@burci)
+* Fix: Query used GROUP BY in a non-standard way that caused Postgres didn't work right (@burci)
+
+<b>1.1.0 - 2012-04-16</b> 
+* Added routes compatibles with Redmine 1.4 (@lauer)
+* Added Portuguese translation (@heslei)
+* New time entry form: Projects list ordered alphabetically
+* New time entry form: Issues list ordered by Id & Last update
+* New time entry form: Activity list ordered alphabetically
+
+<b>1.0.2 - 2012-03-21</b> 
+* First public release
+
