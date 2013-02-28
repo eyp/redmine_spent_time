@@ -34,25 +34,12 @@ After doing a query, if there are time entries in the result, you will be able t
 
 == Languages
 
-* Catalonian
-* English
-* French
-* German
-* Hungarian
-* Italian
-* Polish
-* Portuguese
-* Russian
-* Simplified Chinese
-* Spanish
+* Catalonian, English, French, German, Hungarian, Italian, Polish, Portuguese, Russian, Simplified Chinese, Spanish.
 
 == Code contributors
 
-* @lauer (Jesper Grann Laursen)
-* @burci (Peter Buri)
-* @mjanser (Martin Janser)
-* @pedrosnk (Pedro Medeiros)
-* @krewetka (Ania Krawet)
+* @lauer (Jesper Grann Laursen), @burci (Peter Buri), @mjanser (Martin Janser)
+* @pedrosnk (Pedro Medeiros), @krewetka (Ania Krawet)
 
 == Translators
 
