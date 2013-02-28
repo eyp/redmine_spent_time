@@ -21,8 +21,12 @@
   %>
   <% if is_weekend %>
     <td class="<%= style %>"><em>--</em></td>
+    <td class="<%= style %>"><em>--</em></td>
+    <td class="<%= style %>"><em>--</em></td>
   <% else %>
     <td class="<%= style %>"><em><%= "%.2f" % total_hours %></em></td>
+    <td class="<%= 'hours' %>"><em>--</em></td>
+    <td class="<%= 'hours' %>"><em>--</em></td>
   <% end -%>
   <td></td>
 </tr>

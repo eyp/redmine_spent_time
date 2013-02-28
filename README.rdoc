@@ -81,5 +81,6 @@ If you need help you can contact the maintainer at eduardo.yanez@gmail.com or cr
 * Default time period 'Last 7 days' (@lauer)
 * Project selection combo-box as tree (@lauer)
 * New time period 'Last 2 weeks'.
+* Showed estimated time in time report
 
 All {release notes}[https://github.com/eyp/redmine_spent_time/blob/master/release-notes.rdoc]
