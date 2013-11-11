@@ -23,7 +23,8 @@ class SpentTimeController < ApplicationController
     else
       @users = [@user]
     end
-    params[:period] ||= "7_days"    
+    params[:period] ||= "7_days"
+    make_time_entry_report(nil, nil, User.current)
     @users.sort! { |a, b| a.name <=> b.name }
     @assigned_issues = []
     @same_user = true
