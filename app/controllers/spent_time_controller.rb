@@ -91,7 +91,7 @@ class SpentTimeController < ApplicationController
     rescue
       raise "invalid_date_error"
     end
-    raise "invalid_hours_error" if !is_numeric?(params[:time_entry][:hours])
+    raise "invalid_hours_error" if !is_numeric?(params[:time_entry][:hours].to_f)
     params[:time_entry][:spent_on] = @time_entry_date
     @from = params[:from].to_s.to_date
     @to = params[:to].to_s.to_date
