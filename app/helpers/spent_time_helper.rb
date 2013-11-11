@@ -41,7 +41,7 @@ module SpentTimeHelper
 
   # Returns the users' projects ordered by name
   def user_projects_ordered
-      projects = @user.projects.sort {|a,b| a.name <=> b.name}
+      projects = @user.projects.active.sort {|a,b| a.name <=> b.name}
       find_assigned_issues_by_project(projects.first) if (projects.length == 1)
       projects
   end
