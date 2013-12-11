@@ -1,6 +1,6 @@
 = redmine_spent_time
 
-<b>Versions >=2.4.0 are compatible with Redmine >=2.1, version <=2.3.1 are compatible with Redmine 2.0.X</b>
+<b>Versions >=2.4.0 are compatible with Redmine >=2.1, version <=2.4.1 are compatible with Redmine 2.0.X</b>
 
 For Redmine 1.4.X go to {redmine_spent_time-1.4}[https://github.com/eyp/redmine_spent_time-1.4] repository.
 
