@@ -15,7 +15,7 @@ has already spent some time but are not assigned to him.
 
 1. Go to your redmine root path/plugins.
 2. At the command line type <tt>git clone https://github.com/eyp/redmine_spent_time.git</tt>.
-3. Install required gems (best_in_place is requered) with bundler in redmine directory: <tt>cd .. && bundle install</tt>
+3. Install required gems (best_in_place is required) with bundler in redmine directory: <tt>cd .. && bundle install</tt>
 4. Restart your Redmine web servers (e.g. mongrel, thin, mod_rails).
 5. Login and configure the plugin (see Permissions section.)
 6. Click the 'Spent time' link in the top left menu.
