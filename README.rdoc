@@ -68,7 +68,6 @@ If you need help you can contact the maintainer at eduardo.yanez@gmail.com or cr
 * Only shows active projects by default (@Weptun).
 * Check permissions before create entries (@nick7ikin).
 * More errors controls (@nick7ikin).
-* Check box for showing closed projects.
 
 <b>2.5.0 - 2013-02-28</b>
 * Link to 'Spent time' is not shown for users who don't have permissions to acces it.
