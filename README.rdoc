@@ -1,8 +1,6 @@
 = redmine_spent_time
 
-<b>Versions >=2.4.0 are compatible with Redmine >=2.1, version <=2.4.0 are compatible with Redmine 2.0.X</b>
-
-For Redmine 1.4.X go to {redmine_spent_time-1.4}[https://github.com/eyp/redmine_spent_time-1.4] repository.
+<b>Tested on Redmine >= 2.3</b>
 
 This is a {Redmine}[http://www.redmine.org]'s plugin which allow users to add spent time entries for issues they have worked on. 
 It gives users a comfortable form to do queries about their spent time on projects, along with a little form
@@ -36,11 +34,12 @@ After doing a query, if there are time entries in the result, you will be able t
 == Languages
 
 * Catalonian, English, French, German, Hungarian, Italian, Polish, Portuguese, Russian, Simplified Chinese, Spanish.
+Only English & Spanish are complete, others need some literals to translate.
 
 == Code contributors
 
 * @lauer (Jesper Grann Laursen), @burci (Peter Buri), @mjanser (Martin Janser)
-* @pedrosnk (Pedro Medeiros), @krewetka (Ania Krawet)
+* @pedrosnk (Pedro Medeiros), @krewetka (Ania Krawet), @mficzel (Martin Ficzel), @nick7ikin, @Weptun
 
 == Translators
 
@@ -62,6 +61,15 @@ This plugin is licensed under the {Apache License, Version 2.0}[http://www.apach
 If you need help you can contact the maintainer at eduardo.yanez@gmail.com or create an issue in the {GitHub Issues tracker}[https://github.com/eyp/redmine_spent_time/issues].
 
 == Release notes
+<b>2.6.0 - 2014-02-10</b>
+* Allows to insert time entries on weekends, and show the hours.
+* Custom fields on time entries insertion.
+* Notify when time entry is created or updated.
+* Only shows active projects by default (@Weptun).
+* Check permissions before create entries (@nick7ikin).
+* More errors controls (@nick7ikin).
+* Check box for showing closed projects.
+
 <b>2.5.0 - 2013-02-28</b>
 * Link to 'Spent time' is not shown for users who don't have permissions to acces it.
 * Added edit in-place feature for already existent time entries (@lauer)
