@@ -11,7 +11,7 @@
                   :title => l(:button_edit)) %>
       <%= link_to(image_tag('delete.png'), {:controller => 'spent_time', :action => 'destroy_entry', :id => entry.id, :from => @from, :to => @to}, 
                   :remote => true,
-                  :confirm => l(:text_are_you_sure)) %>
+                  :data => {:confirm => l(:text_are_you_sure)}) %>
   <% end -%>
   </td>
 </tr>

@@ -7,27 +7,17 @@
     <td colspan="2"></td>
   <% end -%>
   <%-
-      if is_weekend
-        style = 'hours'
-      else
-        total_hours = (@entries_by_date[day].nil? ? 0 : @entries_by_date[day].sum(&:hours).to_f)
-        style = 'hours'
-        if total_hours < 8.0
-            style = 'less_than_8_hours'
-        elsif total_hours > 8.0
-            style = 'more_than_8_hours'
-        end
-      end
+    total_hours = (@entries_by_date[day].nil? ? 0 : @entries_by_date[day].sum(&:hours).to_f)
+    style = 'hours'
+    if total_hours < 8.0
+        style = 'less_than_8_hours'
+    elsif total_hours > 8.0
+        style = 'more_than_8_hours'
+    end
   %>
-  <% if is_weekend %>
-    <td class="<%= style %>"><em>--</em></td>
-    <td class="<%= style %>"><em>--</em></td>
-    <td class="<%= style %>"><em>--</em></td>
-  <% else %>
-    <td class="<%= style %>"><em><%= "%.2f" % total_hours %></em></td>
-    <td class="<%= 'hours' %>"><em>--</em></td>
-    <td class="<%= 'hours' %>"><em>--</em></td>
-  <% end -%>
+  <td class="<%= style %>"><em><%= "%.2f" % total_hours %></em></td>
+  <td class="<%= 'hours' %>"><em>--</em></td>
+  <td class="<%= 'hours' %>"><em>--</em></td>
   <td></td>
 </tr>
 <% if !@entries_by_date[day].nil? %>

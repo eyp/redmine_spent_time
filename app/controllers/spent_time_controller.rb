@@ -4,6 +4,8 @@ class SpentTimeController < ApplicationController
   include TimelogHelper
   helper :spent_time
   include SpentTimeHelper
+  helper :custom_fields
+  include CustomFieldsHelper
 
   # Show the initial form.
   # * If user has permissions to see spent time for every project
@@ -28,6 +30,8 @@ class SpentTimeController < ApplicationController
     @users.sort! { |a, b| a.name <=> b.name }
     @assigned_issues = []
     @same_user = true
+    @time_entry = TimeEntry.new
+    #@time_entry.safe_attributes
   end
 
   # Show the report of spent time between to dates for an user
@@ -69,18 +73,18 @@ class SpentTimeController < ApplicationController
 
     call_hook(:controller_timelog_edit_before_save, { :params => params, :time_entry => @time_entry })
 
-    if @time_entry.save
+    if (@time_entry.save!)
+      flash[:notice] = l("time_entry_updated_notice")
       respond_to do |format|
         format.js 
         format.json { head :ok }
       end
-    else
-      respond_to do |format|        
-        format.js
-        format.json { respond_with_bip(@time_entry) }
-      end
     end
-
+    rescue Exception => ex
+      respond_to do |format|
+        flash[:error] = ex.message
+        format.js { render 'spent_time/update_entry_error'}
+      end
   end
 
   # Create a new time entry
@@ -92,6 +96,7 @@ class SpentTimeController < ApplicationController
     rescue
       raise "invalid_date_error"
     end
+
     raise "invalid_hours_error" if !is_numeric?(params[:time_entry][:hours].to_f)
     params[:time_entry][:spent_on] = @time_entry_date
     @from = params[:from].to_s.to_date
@@ -104,16 +109,16 @@ class SpentTimeController < ApplicationController
     begin
       @project = Project.find(params[:project_id])
 
-      if !allowed_project?(params[:project_id])
+      if (!allowed_project?(params[:project_id]))
         raise t('not_allowed_error', :project => @project)
       end
     rescue ActiveRecord::RecordNotFound
       raise t('cannot_find_project_error', project_id=>params[:project_id])
     end
-    @time_entry.project = @project
 
+    @time_entry.project = @project
     issue_id = (params[:issue_id] == nil) ? 0 : params[:issue_id].to_i
-    if issue_id>0
+    if (issue_id > 0)
       begin
         @issue = Issue.find(issue_id)
       rescue ActiveRecord::RecordNotFound
@@ -129,7 +134,7 @@ class SpentTimeController < ApplicationController
 
     render_403 and return if @time_entry && !@time_entry.editable_by?(@user)
     @time_entry.user = @user
-    if @time_entry.save
+    if (@time_entry.save!)
       flash[:notice] = l("time_entry_added_notice")
       respond_to do |format|
         if @time_entry_date > @to
@@ -152,6 +157,8 @@ class SpentTimeController < ApplicationController
   def update_project_issues
     @to = params[:to].to_date
     @from = params[:from].to_date
+    project = Project.find(params[:project_id])
+    @time_entry = TimeEntry.new(:project => project)
     find_assigned_issues_by_project(params[:project_id])
     respond_to do |format|
       format.js
