@@ -10,3 +10,7 @@ ru:
   select_project_option: "Выберите проект"
   label_person: "Пользователь"
   label_interval: "Интервал"
+  not_allowed_error: "Запрещено логировать на проект '%{project}'"
+  issue_not_in_project_error: "Тикет #%{issue} находится не в проекте '%{project}'"
+  issue_not_found_error: "Тикет id=%{issue_id} не найден"
+  cannot_find_project_error: "Нет проекта с id=%{project_id}"

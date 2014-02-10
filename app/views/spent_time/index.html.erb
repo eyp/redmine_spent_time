@@ -23,7 +23,7 @@
       <%= radio_button_tag('period_type', '1', !@free_period) %>
       <%= select_tag('period', options_for_period_select(params[:period]),
                                :onchange => "$('form_query').onsubmit();".html_safe,
-                               :onfocus => "$('period_type_1').checked = true;".html_safe) %>
+                               :onfocus => "$user_projects_ordered('period_type_1').checked = true;".html_safe) %>
       <%= radio_button_tag('period_type', '2', @free_period) %>
       <span onclick="$('period_type_2').checked = true;">
         <%= l(:label_date_from) %>

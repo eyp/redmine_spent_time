@@ -98,20 +98,39 @@ class SpentTimeController < ApplicationController
     @to = params[:to].to_s.to_date
 
     # Save the new record
+    @time_entry = TimeEntry.new(:user => @user)
+    @time_entry.attributes = params[:time_entry]
+
     begin
-      @issue = Issue.find(params[:issue_id])
-      @project = @issue.project
-      @time_entry ||= TimeEntry.new(:project => @project, :issue => @issue, :user => @user)
-    rescue
-      @project = Project.find(params[:project_id]);
-      @time_entry ||= TimeEntry.new(:project => @project, :user => @user)
+      @project = Project.find(params[:project_id])
+
+      if !allowed_project?(params[:project_id])
+        raise t('not_allowed_error', :project => @project)
+      end
+    rescue ActiveRecord::RecordNotFound
+      raise t('cannot_find_project_error', project_id=>params[:project_id])
+    end
+    @time_entry.project = @project
+
+    issue_id = (params[:issue_id] == nil) ? 0 : params[:issue_id].to_i
+    if issue_id>0
+      begin
+        @issue = Issue.find(issue_id)
+      rescue ActiveRecord::RecordNotFound
+        raise t('issue_not_found_error', :issue_id=> issue_id)
+      end
+
+      if @project.id==@issue.project_id
+        @time_entry.issue = @issue
+      else
+        raise t('issue_not_in_project_error', issue=>@issue, project=>@project)
+      end
     end
 
-    @time_entry.attributes = params[:time_entry]
     render_403 and return if @time_entry && !@time_entry.editable_by?(@user)
     @time_entry.user = @user
     if @time_entry.save
-      flash[:notice] = "time_entry_added_notice"
+      flash[:notice] = l("time_entry_added_notice")
       respond_to do |format|
         if @time_entry_date > @to
           @to = @time_entry_date
@@ -144,4 +163,11 @@ class SpentTimeController < ApplicationController
   def is_numeric?(obj) 
    obj.to_s.match(/\A[+-]?\d+?(\.\d+)?\Z/) == nil ? false : true
   end
+
+  def allowed_project?(project_id)
+    project = Project.find(project_id)
+    allowed = project.allows_to?(:log_time)
+    return allowed ? project : nil;
+  end
+
 end
