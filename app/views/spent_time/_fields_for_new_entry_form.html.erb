@@ -16,9 +16,11 @@
   <%= l(:field_comments) %>
   <%= text_field_tag('time_entry[comments]', '', :size => 30)%>
   <%# Añadir campos definidos por el usuario %>
-  <% @time_entry.custom_field_values.each do |value| %>
+  <% if (@time_entry && @time_entry.custom_field_values)
+       @time_entry.custom_field_values.each do |value| %>
     <%= custom_field_tag_with_label :time_entry, value %>
-  <% end %>
+    <% end 
+     end %>
   <p>
     <%= submit_tag l(:button_save), :name => nil %>
     <%= link_to_function(l(:button_cancel), "$('#new_time_entry_form').toggle();$('#report_menu_options').toggle();".html_safe) %>
