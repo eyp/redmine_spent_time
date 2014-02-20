@@ -16,7 +16,7 @@
     <tbody>
     <% @to.downto(@from) do |day| %>
       <%= render :partial => 'time_entries_by_date', :locals => {:day => day} %>
-    <% end -%>
+    <% end %>
     </tbody>
   </table>
 </div>

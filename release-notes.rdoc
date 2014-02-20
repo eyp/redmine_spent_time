@@ -1,4 +1,17 @@
 == Release notes
+<b>2.6.1 - 2014-02-20</b>
+* Fix: #50 Sorting is not working
+* Fix: #51 Interval's filter not working
+* Fix: #52 Issue column content is not being wrapped up
+
+<b>2.6.0 - 2014-02-10</b>
+* Allows to insert time entries on weekends, and show the hours.
+* Custom fields on time entries insertion.
+* Notify when time entry is created or updated.
+* Only shows active projects by default (@Weptun).
+* Check permissions before create entries (@nick7ikin).
+* More errors controls (@nick7ikin).
+
 <b>2.5.0 - 2013-02-28</b>
 * Link to 'Spent time' is not shown for users who don't have permissions to acces it.
 * Added edit in-place feature for already existent time entries (@lauer)

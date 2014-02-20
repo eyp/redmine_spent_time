@@ -43,3 +43,19 @@ td.more_than_8_hours {
 input#time_entry_comments {
     width: 20%;
 }
+
+.centered {
+    text-align: center;
+}
+
+.subject { 
+    text-align: left;
+    white-space: pre-wrap; 
+    wordwrap: break-word;
+}
+
+.comments { 
+    text-align: left;
+    white-space: pre-wrap; 
+    wordwrap: break-word;
+}
