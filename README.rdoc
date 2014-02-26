@@ -61,6 +61,10 @@ This plugin is licensed under the {Apache License, Version 2.0}[http://www.apach
 If you need help you can contact the maintainer at eduardo.yanez@gmail.com or create an issue in the {GitHub Issues tracker}[https://github.com/eyp/redmine_spent_time/issues].
 
 == Release notes
+<b>2.6.2 - 2014-02-26</b>
+* Fix: #53 undefined local variable or method `project_id'...
+* Fix: #54 Problem with permission
+
 <b>2.6.1 - 2014-02-20</b>
 * Fix: #50 Sorting is not working
 * Fix: #51 Interval's filter not working

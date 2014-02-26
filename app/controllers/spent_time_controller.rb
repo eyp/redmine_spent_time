@@ -31,13 +31,16 @@ class SpentTimeController < ApplicationController
     @assigned_issues = []
     @same_user = true
     @time_entry = TimeEntry.new
-    #@time_entry.safe_attributes
   end
 
-  # Show the report of spent time between to dates for an user
+  # Show the report of spent time between two dates for an user
   def report
     @user = User.current
-    make_time_entry_report(params[:from], params[:to], params[:user])
+    projects = nil
+    if (authorized_for?(:view_others_spent_time))
+      projects = User.current.projects
+    end
+    make_time_entry_report(params[:from], params[:to], params[:user], projects)
     another_user = User.find(params[:user])
     @same_user = (@user.id == another_user.id)
     respond_to do |format|
@@ -90,6 +93,7 @@ class SpentTimeController < ApplicationController
   # Create a new time entry
   def create_entry
     @user = User.current
+    raise t('project_is_mandatory_error') if params[:project_id].to_i < 0
 
     begin
       @time_entry_date = params[:time_entry_spent_on].to_s.to_date

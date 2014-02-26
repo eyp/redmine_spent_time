@@ -21,3 +21,4 @@ ru:
   issue_not_in_project_error: "Тикет #%{issue} находится не в проекте '%{project}'"
   issue_not_found_error: "Тикет id=%{issue_id} не найден"
   cannot_find_project_error: "Нет проекта с id=%{project_id}"
+  project_is_mandatory_error: "You must select a project"

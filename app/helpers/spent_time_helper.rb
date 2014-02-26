@@ -47,17 +47,33 @@ module SpentTimeHelper
   end
 
   # Make the spent time report between two dates for a given user
-  def make_time_entry_report(from, to, user)
-    retrieve_date_range(from, to)
-    conditions = "#{TimeEntry.table_name}.user_id = ? AND #{TimeEntry.table_name}.spent_on BETWEEN ? AND ?"
+  # Params:
+  # +from+:: First date to search for time entries
+  # +to+:: Last date to search for time entries
+  # +user+:: User for whom the report is being done
+  # +projects+:: Array of projects involved in the query. If nil then all projects
+  def make_time_entry_report(from, to, user, projects = nil)
+    conditions = []
+    arguments = {}
+
+    conditions << "#{TimeEntry.table_name}.spent_on BETWEEN :from AND :to"
+    figure_out_date_range(from, to)
+    arguments[:from] = @from
+    arguments[:to] = @to
 
     if (User.exists?(user))
       query_user = User.find(user)
-      conditions += " and #{TimeEntry.table_name}.user_id = #{query_user.id}"
+      conditions << "#{TimeEntry.table_name}.user_id = :user"
+      arguments[:user] = user
+    end
+
+    if (projects)
+      conditions << "#{TimeEntry.table_name}.project_id in (:projects)"
+      arguments[:projects] = projects
     end
 
     @entries = TimeEntry.find(:all,
-            :conditions => [conditions, user, @from, @to],
+            :conditions => [conditions.join(' AND '), arguments],
             :include => [:activity, :project, {:issue => [:tracker, :status]}],
             :order => "#{TimeEntry.table_name}.spent_on DESC, #{Project.table_name}.name ASC, #{Tracker.table_name}.position ASC, #{Issue.table_name}.id ASC")
     @entries_by_date = @entries.group_by(&:spent_on)
@@ -66,7 +82,7 @@ module SpentTimeHelper
   end
 
   # Retrieves the date range based on predefined ranges or specific from/to param dates
-  def retrieve_date_range(from, to)
+  def figure_out_date_range(from, to)
     @free_period = false
     @from, @to = nil, nil
 
