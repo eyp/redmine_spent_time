@@ -22,4 +22,4 @@ es:
   issue_not_found_error: "La tarea con id=%{issue_id} no existe"
   cannot_find_project_error: "El proyecto con id=%{project_id} no existe"
   project_is_mandatory_error: "Debes seleccionar un proyecto"
-
+  label_total_estimated_time: "Tiempo total estimado"

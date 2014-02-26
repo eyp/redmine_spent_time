@@ -77,6 +77,8 @@ module SpentTimeHelper
             :include => [:activity, :project, {:issue => [:tracker, :status]}],
             :order => "#{TimeEntry.table_name}.spent_on DESC, #{Project.table_name}.name ASC, #{Tracker.table_name}.position ASC, #{Issue.table_name}.id ASC")
     @entries_by_date = @entries.group_by(&:spent_on)
+    @total_estimated_time = 0
+    @entries.group_by(&:issue).each_key {|issue| @total_estimated_time += (issue.estimated_hours ? issue.estimated_hours.to_f : 0)}
     @assigned_issues = []
     @activities = TimeEntryActivity.all
   end

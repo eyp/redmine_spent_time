@@ -22,3 +22,4 @@ ru:
   issue_not_found_error: "Тикет id=%{issue_id} не найден"
   cannot_find_project_error: "Нет проекта с id=%{project_id}"
   project_is_mandatory_error: "You must select a project"
+  label_total_estimated_time: "Total estimated time"

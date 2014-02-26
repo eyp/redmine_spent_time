@@ -46,7 +46,7 @@ Only English & Spanish are complete, others need some literals to translate.
 * @heslei (Heslei Silva): Portuguese
 * @mjanser (Martin Janser): German
 * @burci (Peter Buri): Hungarian
-* @krewetka (Ania Krawet): Polish
+* @krewetka (Ania Krawet), @dgutkowsky: Polish
 * @ilya-yurtaev (Ilya Yurtaev): Russian
 * @archonwang (Steven W.): Simplified Chinese
 * @cforce (Terence Miller): General help on translations
@@ -64,6 +64,7 @@ If you need help you can contact the maintainer at eduardo.yanez@gmail.com or cr
 <b>2.6.2 - 2014-02-26</b>
 * Fix: #53 undefined local variable or method `project_id'...
 * Fix: #54 Problem with permission
+* Enhancement: #56 Added total estimated time to report
 
 <b>2.6.1 - 2014-02-20</b>
 * Fix: #50 Sorting is not working
