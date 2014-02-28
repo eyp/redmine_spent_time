@@ -23,7 +23,7 @@ has already spent some time but are not assigned to him.
 There are some permissions which can be set up for every role from the Administration -> Roles and permissions.
 
 * Time tracking -> 'View spent time': Activated by default, it allows the user to go to this plugin's main page.
-* Project -> 'View others spent time': Deactivated by default, it allows the user to view the time spent of other members of the projects his is member of.
+* Project -> 'View others spent time': Deactivated by default, it allows the user to view the spent time of other members of the projects he is member of.
 * Project -> 'View every project spent time': Deactivated by default, it allows to view the spent time of everyone.
 
 == Usage
