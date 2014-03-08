@@ -12,7 +12,7 @@ ja:
   label_interval: "期間"
   permission_view_spent_time: "作業時間を表示する"
   permission_view_others_spent_time: "他のユーザーの作業時間を表示する"
-  permission_view_every_project_spent_time: "プロジェクトごとに表示"
+  permission_view_every_project_spent_time: "作業時間をすべてのプロジェクトで表示"
   time_entry_added_notice: "作業時間を入力しました"
   time_entry_updated_notice: "作業時間を更新しました"
   invalid_date_error: "日付が不正です"
