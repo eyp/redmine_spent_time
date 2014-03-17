@@ -1,4 +1,7 @@
 == Release notes
+<b>2.6.4 - 2014-03-17</b>
+* Translate: #59 Added Japanese translation by Hajime (@momibun926)
+
 <b>2.6.3 - 2014-03-03</b>
 * Fix: #57 undefined method `estimated_hours'
 * Enhancement: #58 German translation completed

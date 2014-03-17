@@ -33,8 +33,8 @@ After doing a query, if there are time entries in the result, you will be able t
 
 == Languages
 
-* Catalonian, English, French, German, Hungarian, Italian, Polish, Portuguese, Russian, Simplified Chinese, Spanish.
-Only English & Spanish are complete, others need some literals to translate.
+* Catalonian, English, French, German, Hungarian, Italian, Japanese, Polish, Portuguese, Russian, Simplified Chinese & Spanish.
+Only English, Japanses & Spanish are complete, others need some literals to translate.
 
 == Code contributors
 
@@ -51,6 +51,7 @@ Only English & Spanish are complete, others need some literals to translate.
 * @archonwang (Steven W.): Simplified Chinese
 * @cforce (Terence Miller): General help on translations
 * Matteo Mazzoli: Italian
+* Hajime (@momibun926): Japanese
 
 == License
 
@@ -61,6 +62,9 @@ This plugin is licensed under the {Apache License, Version 2.0}[http://www.apach
 If you need help you can contact the maintainer at eduardo.yanez@gmail.com or create an issue in the {GitHub Issues tracker}[https://github.com/eyp/redmine_spent_time/issues].
 
 == Release notes
+<b>2.6.4 - 2014-03-17</b>
+* Translate: #59 Added Japanese translation by Hajime (@momibun926)
+
 <b>2.6.3 - 2014-03-03</b>
 * Fix: #57 undefined method `estimated_hours'
 * Enhancement: #58 German translation completed
@@ -82,14 +86,5 @@ If you need help you can contact the maintainer at eduardo.yanez@gmail.com or cr
 * Only shows active projects by default (@Weptun).
 * Check permissions before create entries (@nick7ikin).
 * More errors controls (@nick7ikin).
-
-<b>2.5.0 - 2013-02-28</b>
-* Link to 'Spent time' is not shown for users who don't have permissions to acces it.
-* Added edit in-place feature for already existent time entries (@lauer)
-* Added notifications when time entries are added or when errors happen inserting new entries.
-* Default time period 'Last 7 days' (@lauer)
-* Project selection combo-box as tree (@lauer)
-* New time period 'Last 2 weeks'.
-* Showed estimated time in time report
 
 All {release notes}[https://github.com/eyp/redmine_spent_time/blob/master/release-notes.rdoc]
