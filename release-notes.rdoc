@@ -1,4 +1,7 @@
 == Release notes
+<b>2.6.5 - 2014-03-31</b>
+* Translate: #60 Completed Italian translation by @R-i-c-k-y
+
 <b>2.6.4 - 2014-03-17</b>
 * Translate: #59 Added Japanese translation by Hajime (@momibun926)
 
