@@ -37,7 +37,9 @@ class SpentTimeController < ApplicationController
   def report
     @user = User.current
     projects = nil
-    if (authorized_for?(:view_others_spent_time))
+    if (authorized_for?(:view_every_project_spent_time))
+      projects = Project.find(:all, :conditions => ["status = 1"])
+    elsif (authorized_for?(:view_others_spent_time))
       projects = User.current.projects
     end
     make_time_entry_report(params[:from], params[:to], params[:user], projects)

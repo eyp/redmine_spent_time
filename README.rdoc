@@ -62,6 +62,9 @@ This plugin is licensed under the {Apache License, Version 2.0}[http://www.apach
 If you need help you can contact the maintainer at eduardo.yanez@gmail.com or create an issue in the {GitHub Issues tracker}[https://github.com/eyp/redmine_spent_time/issues].
 
 == Release notes
+<b>2.6.6 - 2014-10-16</b>
+* Fix: #67 View every projects spent time doesn't work as expected
+
 <b>2.6.5 - 2014-03-31</b>
 * Translate: #60 Completed Italian translation by @R-i-c-k-y
 
