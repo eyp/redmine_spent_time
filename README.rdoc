@@ -1,5 +1,6 @@
 = redmine_spent_time
 <b>Version 3.0.0 tested in Redmine 3.x (Rails 4.2, Ruby 2.2.1)</b>
+
 <b>Download version 2.6.6 for Redmine >= 2.3 & < 3</b>
 
 This is a {Redmine}[http://www.redmine.org]'s plugin which allow users to add spent time entries for issues they have worked on. 
