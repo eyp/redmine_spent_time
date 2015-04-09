@@ -11,10 +11,16 @@ module SpentTimeHelper
     rescue
       @assigned_issues = []
     else
-      @assigned_issues = Issue.find(:all,
-                          :conditions => ["(#{Issue.table_name}.assigned_to_id=? or #{TimeEntry.table_name}.user_id=?) AND #{IssueStatus.table_name}.is_closed=? AND #{Project.table_name}.status=#{Project::STATUS_ACTIVE} AND #{Project.table_name}.id=?", @user.id, @user.id, false, @project.id],
-                          :include => [ :status, :project, :tracker, :priority, :time_entries ],
-                          :order => "#{Issue.table_name}.id DESC, #{Issue.table_name}.updated_on DESC")
+      conditions = []
+      conditions << "(#{Issue.table_name}.assigned_to_id=:user_id or #{TimeEntry.table_name}.user_id=:user_id)"
+      conditions << "#{IssueStatus.table_name}.is_closed=false"
+      conditions << "#{Project.table_name}.status=#{Project::STATUS_ACTIVE}"
+      conditions << "#{Project.table_name}.id=:project_id"
+      arguments = {:user_id => @user.id, :project_id => @project.id}
+      @assigned_issues = Issue.joins(:status, :project, :tracker, :priority, :time_entries)
+                             .where(conditions.join(' AND '), arguments)
+                              .distinct
+                             .order("#{Issue.table_name}.id DESC, #{Issue.table_name}.updated_on DESC")
     end
     @assigned_issues
   end
@@ -61,25 +67,26 @@ module SpentTimeHelper
     arguments[:from] = @from
     arguments[:to] = @to
 
-    if (User.exists?(user))
+    if User.exists?(user)
+      # Used in the view
       query_user = User.find(user)
       conditions << "#{TimeEntry.table_name}.user_id = :user"
       arguments[:user] = user
     end
 
-    if (projects)
+    if projects
       conditions << "#{TimeEntry.table_name}.project_id in (:projects)"
-      arguments[:projects] = projects
+      arguments[:projects] = projects.map { |c| c.id }
     end
 
-    @entries = TimeEntry.find(:all,
-            :conditions => [conditions.join(' AND '), arguments],
+    @entries = TimeEntry.where(
+            conditions.join(' AND '), arguments,
             :include => [:activity, :project, {:issue => [:tracker, :status]}],
             :order => "#{TimeEntry.table_name}.spent_on DESC, #{Project.table_name}.name ASC, #{Tracker.table_name}.position ASC, #{Issue.table_name}.id ASC")
     @entries_by_date = @entries.group_by(&:spent_on)
     @total_estimated_time = 0
     @entries.group_by(&:issue).each_key {|issue| 
-        if (issue)
+        if issue
             @total_estimated_time += (issue.estimated_hours ? issue.estimated_hours.to_f : 0)
         end
     }
@@ -138,7 +145,22 @@ module SpentTimeHelper
 
   def get_activities(entry)
     activities = []
-    entry.project.activities().each {|a| activities << [a.id, a.name]}
+    entry.project.activities.each {|a| activities << [a.id, a.name]}
     activities
+  end
+
+  def options_for_period_select(value)
+    options_for_select([[l(:label_all_time), 'all'],
+                        [l(:label_today), 'today'],
+                        [l(:label_yesterday), 'yesterday'],
+                        [l(:label_this_week), 'current_week'],
+                        [l(:label_last_week), 'last_week'],
+                        [l(:label_last_n_weeks, 2), 'last_2_weeks'],
+                        [l(:label_last_n_days, 7), '7_days'],
+                        [l(:label_this_month), 'current_month'],
+                        [l(:label_last_month), 'last_month'],
+                        [l(:label_last_n_days, 30), '30_days'],
+                        [l(:label_this_year), 'current_year']],
+                       value)
   end
 end

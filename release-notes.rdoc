@@ -1,4 +1,11 @@
 == Release notes
+<b>3.0.0 - 2015-04-09</b>
+* Request: #68 Updated in order to work in Redmine 3.0 under Rails 4.2
+* Removed: #69 Updating spent times in line with best_in_place plugin doesn't work in Redmine 3 (Rails 4.2)
+
+<b>2.6.6 - 2014-10-16</b>
+* Fix: #67 View every projects spent time doesn't work as expected
+
 <b>2.6.5 - 2014-03-31</b>
 * Translate: #60 Completed Italian translation by @R-i-c-k-y
 

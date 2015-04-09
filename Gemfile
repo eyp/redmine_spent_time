@@ -1,1 +1,1 @@
-gem "best_in_place"
+gem 'best_in_place'

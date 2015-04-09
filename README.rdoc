@@ -1,7 +1,6 @@
 = redmine_spent_time
-<b>For now it doesn't work in Redmine 3.x, but it'll be solved</b>
-
-<b>Tested on Redmine >= 2.3 && < 3</b>
+<b>Version 3.0.0 tested in Redmine 3.x (Rails 4.2, Ruby 2.2.1)</b>
+<b>Download version 2.6.6 for Redmine >= 2.3 & < 3</b>
 
 This is a {Redmine}[http://www.redmine.org]'s plugin which allow users to add spent time entries for issues they have worked on. 
 It gives users a comfortable form to do queries about their spent time on projects, along with a little form
@@ -14,10 +13,9 @@ has already spent some time but are not assigned to him.
 
 1. Go to your redmine root path/plugins.
 2. At the command line type <tt>git clone https://github.com/eyp/redmine_spent_time.git</tt>.
-3. Install required gems (best_in_place is required) with bundler in redmine directory: <tt>cd .. && bundle install</tt>
-4. Restart your Redmine web servers (e.g. mongrel, thin, mod_rails).
-5. Login and configure the plugin (see Permissions section.)
-6. Click the 'Spent time' link in the top left menu.
+3. Restart your Redmine web servers (e.g. mongrel, thin, mod_rails).
+4. Login and configure the plugin (see Permissions section.)
+5. Click the 'Spent time' link in the top left menu.
 
 == Permissions
 
@@ -63,6 +61,10 @@ This plugin is licensed under the {Apache License, Version 2.0}[http://www.apach
 If you need help you can contact the maintainer at eduardo.yanez@gmail.com or create an issue in the {GitHub Issues tracker}[https://github.com/eyp/redmine_spent_time/issues].
 
 == Release notes
+<b>3.0.0 - 2015-04-09</b>
+* Request: #68 Updated in order to work in Redmine 3.0 under Rails 4.2
+* Removed: #69 Updating spent times in line with best_in_place plugin doesn't work in Redmine 3 (Rails 4.2)
+
 <b>2.6.6 - 2014-10-16</b>
 * Fix: #67 View every projects spent time doesn't work as expected
 

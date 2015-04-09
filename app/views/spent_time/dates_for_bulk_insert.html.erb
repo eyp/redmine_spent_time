@@ -13,7 +13,7 @@
     <% i = 0
        @init_date.upto(@end_date) do |date|
          # Si no es un sábado o un domingo...
-         if ![0,6].include?(date.wday)
+         unless [0,6].include?(date.wday)
            prefix = "time_log#{i.to_s}."
            i += 1 %>
            <tr>

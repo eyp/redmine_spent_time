@@ -15,19 +15,19 @@ class SpentTimeController < ApplicationController
   # * If the user only has permissions to see his own report, the users' combobox is filled with the user himself.
   def index
     @user = User.current
-    if (authorized_for?(:view_every_project_spent_time))
-      @users = User.find(:all, :conditions => ["status = 1"])
-    elsif (authorized_for?(:view_others_spent_time))
+    @users = []
+    if authorized_for?(:view_every_project_spent_time)
+      @users = User.active
+    elsif authorized_for?(:view_others_spent_time)
       projects = User.current.projects
-      @users = []
       projects.each { |project| @users.concat(project.users) }
       @users.uniq!
+      @users.order(:name)
     else
       @users = [@user]
     end
-    params[:period] ||= "7_days"
+    params[:period] ||= '7_days'
     make_time_entry_report(nil, nil, User.current)
-    @users.sort! { |a, b| a.name <=> b.name }
     @assigned_issues = []
     @same_user = true
     @time_entry = TimeEntry.new
@@ -37,9 +37,9 @@ class SpentTimeController < ApplicationController
   def report
     @user = User.current
     projects = nil
-    if (authorized_for?(:view_every_project_spent_time))
-      projects = Project.find(:all, :conditions => ["status = 1"])
-    elsif (authorized_for?(:view_others_spent_time))
+    if authorized_for?(:view_every_project_spent_time)
+      projects = Project.active
+    elsif authorized_for?(:view_others_spent_time)
       projects = User.current.projects
     end
     make_time_entry_report(params[:from], params[:to], params[:user], projects)
@@ -68,30 +68,6 @@ class SpentTimeController < ApplicationController
     redirect_to :action => 'index'
   end
   
-  # Update a time entry in line
-  def update_entry
-    @time_entry = TimeEntry.find(params[:entry])
-    render_404 and return unless @time_entry
-    render_403 and return unless @time_entry.editable_by?(User.current)
-
-    @time_entry.safe_attributes = params[:time_entry]
-
-    call_hook(:controller_timelog_edit_before_save, { :params => params, :time_entry => @time_entry })
-
-    if (@time_entry.save!)
-      flash[:notice] = l("time_entry_updated_notice")
-      respond_to do |format|
-        format.js 
-        format.json { head :ok }
-      end
-    end
-    rescue Exception => ex
-      respond_to do |format|
-        flash[:error] = ex.message
-        format.js { render 'spent_time/update_entry_error'}
-      end
-  end
-
   # Create a new time entry
   def create_entry
     @user = User.current
@@ -100,10 +76,10 @@ class SpentTimeController < ApplicationController
     begin
       @time_entry_date = params[:time_entry_spent_on].to_s.to_date
     rescue
-      raise "invalid_date_error"
+      raise 'invalid_date_error'
     end
 
-    raise "invalid_hours_error" if !is_numeric?(params[:time_entry][:hours].to_f)
+    raise 'invalid_hours_error' unless is_numeric?(params[:time_entry][:hours].to_f)
     params[:time_entry][:spent_on] = @time_entry_date
     @from = params[:from].to_s.to_date
     @to = params[:to].to_s.to_date
@@ -115,7 +91,7 @@ class SpentTimeController < ApplicationController
     begin
       @project = Project.find(params[:project_id])
 
-      if (!allowed_project?(params[:project_id]))
+      unless allowed_project?(params[:project_id])
         raise t('not_allowed_error', :project => @project)
       end
     rescue ActiveRecord::RecordNotFound
@@ -124,7 +100,7 @@ class SpentTimeController < ApplicationController
 
     @time_entry.project = @project
     issue_id = (params[:issue_id] == nil) ? 0 : params[:issue_id].to_i
-    if (issue_id > 0)
+    if issue_id > 0
       begin
         @issue = Issue.find(issue_id)
       rescue ActiveRecord::RecordNotFound
@@ -140,8 +116,8 @@ class SpentTimeController < ApplicationController
 
     render_403 and return if @time_entry && !@time_entry.editable_by?(@user)
     @time_entry.user = @user
-    if (@time_entry.save!)
-      flash[:notice] = l("time_entry_added_notice")
+    if @time_entry.save!
+      flash[:notice] = l('time_entry_added_notice')
       respond_to do |format|
         if @time_entry_date > @to
           @to = @time_entry_date
@@ -180,7 +156,7 @@ class SpentTimeController < ApplicationController
   def allowed_project?(project_id)
     project = Project.find(project_id)
     allowed = project.allows_to?(:log_time)
-    return allowed ? project : nil;
+    allowed ? project : nil
   end
 
 end
