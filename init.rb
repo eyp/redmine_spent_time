@@ -1,6 +1,5 @@
 # -*- encoding : utf-8 -*-
 require 'redmine'
-require 'best_in_place'
 
 Redmine::Plugin.register :redmine_spent_time do
   name 'Redmine Spent Time plugin'
