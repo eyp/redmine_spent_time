@@ -63,6 +63,9 @@ This plugin is licensed under the {Apache License, Version 2.0}[http://www.apach
 If you need help you can contact the maintainer at eduardo.yanez@gmail.com or create an issue in the {GitHub Issues tracker}[https://github.com/eyp/redmine_spent_time/issues].
 
 == Release notes
+<b>3.0.2 - 2015-05-21</b>
+* Fix: #72 User field is no longer alphabetically ordered
+
 <b>3.0.0 - 2015-04-09</b>
 * Request: #68 Updated in order to work in Redmine 3.0 under Rails 4.2
 * Removed: #69 Updating spent times in line with best_in_place plugin doesn't work in Redmine 3 (Rails 4.2)

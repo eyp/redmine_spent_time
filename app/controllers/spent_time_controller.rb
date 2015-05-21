@@ -17,12 +17,12 @@ class SpentTimeController < ApplicationController
     @user = User.current
     @users = []
     if authorized_for?(:view_every_project_spent_time)
-      @users = User.active
+      @users = User.active.order(:firstname)
     elsif authorized_for?(:view_others_spent_time)
       projects = User.current.projects
       projects.each { |project| @users.concat(project.users) }
       @users.uniq!
-      @users.order(:name)
+      @users.order(:firstname)
     else
       @users = [@user]
     end
