@@ -1,16 +1,5 @@
 <% content_for :header_tags do %>
     <%= stylesheet_link_tag 'spent_time', :plugin => 'redmine_spent_time' %>
-    <%= javascript_include_tag 'jquery.purr.js', :plugin => 'redmine_spent_time' %>
-    <%= javascript_include_tag 'best_in_place.purr.js', :plugin => 'redmine_spent_time' %>
-    <%= javascript_include_tag 'best_in_place', :plugin => 'redmine_spent_time' %>
-    <script>
-      $(document).ready(function() {
-        /* Activating Best In Place */
-        jQuery(".best_in_place").best_in_place();
-        $('.best_in_place').bind("ajax:success", function () {$(this).closest('tr').effect('highlight'); });
-        $('.best_in_place').bind("ajax:error", function () {$(this).closest('tr').effect('bounce'); });      
-      });
-    </script>
 <% end %>
 
 <%= form_tag(report_spent_time_path, :id => "form_query", :remote => true,
