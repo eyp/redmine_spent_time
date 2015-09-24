@@ -70,6 +70,9 @@ If you need help you can contact the maintainer at eduardo.yanez@gmail.com or cr
 * Fix: #74 Time displays 0.00 when time entry is not linked to an issue
 * Fix: #75 Incomplete issues list in combo box
 
+<b>2.6.7 - 2015-09-24</b>
+* Fix: #73 Closed projects are not included in report
+
 <b>3.0.2 - 2015-05-21</b>
 * Fix: #72 User field is no longer alphabetically ordered
 
