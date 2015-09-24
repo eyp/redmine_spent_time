@@ -2,7 +2,7 @@
   <td class="activity centered"><%=h entry.activity.name %></td>
   <td class="subject"><%=h entry.project %> - [<%=raw( entry.issue ? entry.issue.status : l(:issue_not_exists))%>] <%= raw (' - ' + link_to_issue(entry.issue)) if entry.issue %></td>
   <td class="comments"><%= truncate(entry.comments, length: 150) %></td>
-  <td class="issue-hours centered"><%= h entry.issue ? '%.2f' % entry.hours : '0.00' %></td>
+  <td class="issue-hours centered"><%= h entry.hours ? '%.2f' % entry.hours : '0.00' %></td>
   <td class="issue-hours centered"><%= h entry.issue ? entry.issue.estimated_hours : '0.00' %></td>
   <td class="issue-hours centered"><%= h entry.issue ? '%.2f' % entry.issue.total_spent_hours : '0.00' %></td>
   <td class="centered">

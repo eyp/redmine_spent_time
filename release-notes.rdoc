@@ -1,4 +1,10 @@
 == Release notes
+<b>3.1.0 - 2015-09-24</b>
+* Tested on Redmine 3.1.1, Rails 4.2, Ruby 2.1.6
+* Fix: #73 Closed projects are not included in report
+* Fix: #74 Time displays 0.00 when time entry is not linked to an issue
+* Fix: #75 Incomplete issues list in combo box
+
 <b>3.0.0 - 2015-04-09</b>
 * Request: #68 Updated in order to work in Redmine 3.0 under Rails 4.2
 * Removed: #69 Updating spent times in line with best_in_place plugin doesn't work in Redmine 3 (Rails 4.2)
