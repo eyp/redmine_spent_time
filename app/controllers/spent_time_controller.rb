@@ -38,7 +38,7 @@ class SpentTimeController < ApplicationController
     @user = User.current
     projects = nil
     if (authorized_for?(:view_every_project_spent_time))
-      projects = Project.find(:all, :conditions => ["status = 1"])
+      projects = Project.find(:all)
     elsif (authorized_for?(:view_others_spent_time))
       projects = User.current.projects
     end

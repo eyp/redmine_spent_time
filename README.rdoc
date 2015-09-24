@@ -12,7 +12,8 @@ has already spent some time but are not assigned to him.
 == Installation
 
 1. Go to your redmine root path/plugins.
-2. At the command line type <tt>git clone https://github.com/eyp/redmine_spent_time.git</tt>.
+2. At the command line type:
+    git clone https://github.com/eyp/redmine_spent_time.git
 3. Install required gems (best_in_place is required) with bundler in redmine directory: <tt>cd .. && bundle install</tt>
 4. Restart your Redmine web servers (e.g. mongrel, thin, mod_rails).
 5. Login and configure the plugin (see Permissions section.)
@@ -62,6 +63,9 @@ This plugin is licensed under the {Apache License, Version 2.0}[http://www.apach
 If you need help you can contact the maintainer at eduardo.yanez@gmail.com or create an issue in the {GitHub Issues tracker}[https://github.com/eyp/redmine_spent_time/issues].
 
 == Release notes
+<b>2.6.7 - 2015-09-24</b>
+* Fix: #73 Closed projects are not included in report
+
 <b>2.6.6 - 2014-10-16</b>
 * Fix: #67 View every projects spent time doesn't work as expected
 

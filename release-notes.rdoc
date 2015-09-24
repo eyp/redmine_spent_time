@@ -1,5 +1,11 @@
 == Release notes
-<b>2.6.5 - 2014-03-31</b>
+<b>2.6.7 - 2015-09-24</b>
+* Fix: #73 Closed projects are not included in report
+
+<b>2.6.6 - 2014-10-16</b>
+* Fix: #67 View every projects spent time doesn't work as expected
+
+2.6.5 - 2014-03-31</b>
 * Translate: #60 Completed Italian translation by @R-i-c-k-y
 
 <b>2.6.4 - 2014-03-17</b>
