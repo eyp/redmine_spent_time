@@ -1,4 +1,7 @@
 == Release notes
+<b>3.1.2 - 2015-10-01</b>
+* #77 Refactored routes.rb and fixed projects combo box (@alexandermeindl).
+
 <b>3.1.0 - 2015-09-24</b>
 * Tested on Redmine 3.1.1, Rails 4.2, Ruby 2.1.6
 * Fix: #73 Closed projects are not included in report

@@ -41,7 +41,8 @@ After doing a query, if there are time entries in the result, you will be able t
 == Code contributors
 
 * @lauer (Jesper Grann Laursen), @burci (Peter Buri), @mjanser (Martin Janser)
-* @pedrosnk (Pedro Medeiros), @krewetka (Ania Krawet), @mficzel (Martin Ficzel), @nick7ikin, @Weptun
+* @pedrosnk (Pedro Medeiros), @krewetka (Ania Krawet), @mficzel (Martin Ficzel)
+* @nick7ikin, @Weptun, @alexandermeindl (Alexander Meindl)
 
 == Translators
 
@@ -64,6 +65,9 @@ This plugin is licensed under the {Apache License, Version 2.0}[http://www.apach
 If you need help you can contact the maintainer at eduardo.yanez@gmail.com or create an issue in the {GitHub Issues tracker}[https://github.com/eyp/redmine_spent_time/issues].
 
 == Release notes
+<b>3.1.2 - 2015-10-01</b>
+* #77 Refactored routes.rb and fixed projects combo box (@alexandermeindl).
+
 <b>3.1.0 - 2015-09-24</b>
 * Tested on Redmine 3.1.1, Rails 4.2, Ruby 2.1.6
 * Fix: #73 Closed projects are not included in report
