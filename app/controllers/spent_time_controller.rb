@@ -38,7 +38,8 @@ class SpentTimeController < ApplicationController
     @user = User.current
     projects = nil
     if authorized_for?(:view_every_project_spent_time)
-      projects = Project.find(:all)
+      # all project, which are not archived
+      projects = Project.where('status!=9')
     elsif authorized_for?(:view_others_spent_time)
       projects = User.current.projects
     end
