@@ -43,7 +43,7 @@ module SpentTimeHelper
   def render_project_tree    
       select_tag('project_id', "<option value='-1'>-#{l(:select_project_option)}</option>".html_safe +
                            project_tree_options_for_select(user_projects_ordered),
-                           {:onchange => "$.post('#{update_project_issues_spent_time_path(:from => @from, :to => @to)}', {'_method':'post', 'project_id':this.value});".html_safe})    
+                           {:onchange => "$.post('#{spent_time_update_project_issues_path(:from => @from, :to => @to)}', {'_method':'post', 'project_id':this.value});".html_safe})    
   end
 
   # Returns the users' projects ordered by name
