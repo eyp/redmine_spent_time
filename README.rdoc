@@ -55,6 +55,7 @@ After doing a query, if there are time entries in the result, you will be able t
 * Portuguese: @heslei (Heslei Silva)
 * Russian: @ilya-yurtaev (Ilya Yurtaev)
 * Simplified Chinese: @archonwang (Steven W.)
+* Czech: @j123b567 (Jan Breuer)
 
 == License
 
