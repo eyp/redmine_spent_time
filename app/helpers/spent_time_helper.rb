@@ -13,7 +13,7 @@ module SpentTimeHelper
     else
       conditions = []
       conditions << "(#{Issue.table_name}.assigned_to_id=:user_id or #{TimeEntry.table_name}.user_id=:user_id)"
-      conditions << "#{IssueStatus.table_name}.is_closed=false"
+      conditions << "#{IssueStatus.table_name}.is_closed=0"
       conditions << "#{Project.table_name}.status=#{Project::STATUS_ACTIVE}"
       conditions << "#{Project.table_name}.id=:project_id"
       arguments = {:user_id => @user.id, :project_id => @project.id}
