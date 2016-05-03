@@ -43,7 +43,8 @@ class SpentTimeController < ApplicationController
     elsif authorized_for?(:view_others_spent_time)
       projects = User.current.projects
     end
-    make_time_entry_report(params[:from], params[:to], params[:user], projects)
+    report_user = User.find(params[:user])
+    make_time_entry_report(params[:from], params[:to], report_user, projects)
     another_user = User.find(params[:user])
     @same_user = (@user.id == another_user.id)
     respond_to do |format|
@@ -68,72 +69,82 @@ class SpentTimeController < ApplicationController
   rescue ::ActionController::RedirectBackError
     redirect_to :action => 'index'
   end
-  
+
   # Create a new time entry
   def create_entry
-    @user = User.current
-    raise t('project_is_mandatory_error') if params[:project_id].to_i < 0
-
     begin
-      @time_entry_date = params[:time_entry_spent_on].to_s.to_date
-    rescue
-      raise 'invalid_date_error'
-    end
+      @user = User.current
+      raise t('project_is_mandatory_error') if params[:project_id].to_i < 0
 
-    raise 'invalid_hours_error' unless is_numeric?(params[:time_entry][:hours].to_f)
-    params[:time_entry][:spent_on] = @time_entry_date
-    @from = params[:from].to_s.to_date
-    @to = params[:to].to_s.to_date
-
-    # Save the new record
-    @time_entry = TimeEntry.new(:user => @user)
-    @time_entry.attributes = params[:time_entry]
-
-    begin
-      @project = Project.find(params[:project_id])
-
-      unless allowed_project?(params[:project_id])
-        raise t('not_allowed_error', :project => @project)
-      end
-    rescue ActiveRecord::RecordNotFound
-      raise t('cannot_find_project_error', project_id=>params[:project_id])
-    end
-
-    @time_entry.project = @project
-    issue_id = (params[:issue_id] == nil) ? 0 : params[:issue_id].to_i
-    if issue_id > 0
       begin
-        @issue = Issue.find(issue_id)
-      rescue ActiveRecord::RecordNotFound
-        raise t('issue_not_found_error', :issue_id=> issue_id)
+        @time_entry_date = params[:time_entry_spent_on].to_s.to_date
+      rescue
+        raise 'invalid_date_error'
       end
 
-      if @project.id==@issue.project_id
-        @time_entry.issue = @issue
-      else
-        raise t('issue_not_in_project_error', issue=>@issue, project=>@project)
-      end
-    end
+      raise 'invalid_hours_error' unless is_numeric?(params[:time_entry][:hours].to_f)
+      params[:time_entry][:spent_on] = @time_entry_date
+      @from = params[:from].to_s.to_date
+      @to = params[:to].to_s.to_date
 
-    render_403 and return if @time_entry && !@time_entry.editable_by?(@user)
-    @time_entry.user = @user
-    if @time_entry.save!
-      flash[:notice] = l('time_entry_added_notice')
-      respond_to do |format|
-        if @time_entry_date > @to
-          @to = @time_entry_date
-        elsif @time_entry_date < @from
-          @from = @time_entry_date
+      # Save the new record
+      @time_entry = TimeEntry.new(:user => @user)
+      @time_entry.safe_attributes = params[:time_entry]
+
+      begin
+        @project = Project.find(params[:project_id])
+
+        unless allowed_project?(params[:project_id])
+          raise t('not_allowed_error', :project => @project)
         end
-        make_time_entry_report(@from, @to, @user)
-        format.js
+      rescue ActiveRecord::RecordNotFound
+        raise t('cannot_find_project_error', project_id => params[:project_id])
       end
-    end
+
+      @time_entry.project = @project
+      issue_id = (params[:issue_id] == nil) ? 0 : params[:issue_id].to_i
+      if issue_id > 0
+        begin
+          @issue = Issue.find(issue_id)
+        rescue ActiveRecord::RecordNotFound
+          raise t('issue_not_found_error', :issue_id => issue_id)
+        end
+
+        if @project.id == @issue.project_id
+          @time_entry.issue = @issue
+        else
+          raise t('issue_not_in_project_error', issue => @issue, project => @project)
+        end
+      end
+
+      if @time_entry.project && !@user.allowed_to?(:log_time, @time_entry.project)
+        render_403
+        return
+      end
+      @time_entry.user = @user
+      logger.info('Saving time entry...')
+      if @time_entry.save!
+        flash[:notice] = l('time_entry_added_notice')
+        logger.info('Everything went fine rendering report result')
+        respond_to do |format|
+          if @time_entry_date > @to
+            @to = @time_entry_date
+          elsif @time_entry_date < @from
+            @from = @time_entry_date
+          end
+          make_time_entry_report(@from, @to, @user)
+          logger.info('Rendering JS activities...')
+          format.js
+          return
+        end
+      end
     rescue Exception => ex
+      logger.info(ex.message)
       respond_to do |format|
         flash[:error] = ex.message
-        format.js { render 'spent_time/create_entry_error'}
+        format.js { render 'spent_time/create_entry_error' }
       end
+    end
   end
 
   # Update the project's issues when another project is selected
@@ -149,9 +160,9 @@ class SpentTimeController < ApplicationController
   end
 
   private
-  
-  def is_numeric?(obj) 
-   obj.to_s.match(/\A[+-]?\d+?(\.\d+)?\Z/) == nil ? false : true
+
+  def is_numeric?(obj)
+    obj.to_s.match(/\A[+-]?\d+?(\.\d+)?\Z/) == nil ? false : true
   end
 
   def allowed_project?(project_id)
