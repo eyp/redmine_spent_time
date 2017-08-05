@@ -15,7 +15,7 @@
         style = 'more_than_8_hours'
     end
   %>
-  <td class="<%= style %> centered"><em><%= '%.2f' % total_hours %></em></td>
+  <td class="<%= style %> centered"><em><%= format_hours(total_hours) %></em></td>
   <td class="<%= 'hours' %> centered"><em>--</em></td>
   <td class="<%= 'hours' %> centered"><em>--</em></td>
   <td></td>

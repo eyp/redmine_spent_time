@@ -1,6 +1,6 @@
 <div id="time_entries_report">
   <div class="total-hours">
-    <p><%= t(:label_total_time) %> <%= html_hours("%.2f" % @entries.sum(:hours).to_f) %> <%= l(:field_hours) %> / <span style="font-weight: normal;"><%= t(:label_total_estimated_time) %> <%= html_hours("%.2f" % @total_estimated_time) %> <%= l(:field_hours) %></span></p>
+    <p><%= t(:label_total_time) %> <%= format_hours(@entries.sum(:hours).to_f) %> <%= l(:field_hours) %> / <span style="font-weight: normal;"><%= t(:label_total_estimated_time) %> <%= format_hours(@total_estimated_time) %> <%= l(:field_hours) %></span></p>
   </div>
 
   <table class="list time-entries">
