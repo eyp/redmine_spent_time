@@ -4,25 +4,26 @@ module SpentTimeHelper
   end
 
   # Find issues assigned to the user and issues not assigned to him which the user has spent time
-  def find_assigned_issues_by_project(project)
+  def find_assigned_issues_by_project(project = nil)
     @user = User.current
-    begin
-      @project = Project.find(project)
-    rescue
-      @assigned_issues = []
+    if(project && Integer(project) > 0)
+       @project = Project.find(project)
     else
+       @project = nil
+    end
+      @assigned_issues = []
       conditions = []
       conditions << "(#{Issue.table_name}.assigned_to_id=:user_id or #{TimeEntry.table_name}.user_id=:user_id)"
       conditions << "#{IssueStatus.table_name}.is_closed=:closed_status"
       conditions << "#{Project.table_name}.status=#{Project::STATUS_ACTIVE}"
-      conditions << "#{Project.table_name}.id=:project_id"
-      arguments = {:user_id => @user.id, :project_id => @project.id, :closed_status => false}
+      conditions << "#{Project.table_name}.id=:project_id" if @project
+      arguments = {:user_id => @user.id, :closed_status => false}
+      arguments[:project_id] = @project.id if @project
       @assigned_issues = Issue.joins(:status, :project, :tracker, :priority)
                               .joins('LEFT JOIN time_entries ON time_entries.issue_id = issues.id')
                              .where(conditions.join(' AND '), arguments)
                               .distinct
                              .order("#{Issue.table_name}.id DESC, #{Issue.table_name}.updated_on DESC")
-    end
     @assigned_issues
   end
 
