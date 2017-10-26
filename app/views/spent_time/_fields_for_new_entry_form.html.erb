@@ -1,12 +1,8 @@
 <div id='fields_for_new_entry_form'>
 
   <%= l(:label_issue) %>
-  <% if @project.blank? %>
-    <%= select_tag('issue_id', "<option value='-1'>-</option>".html_safe) %>
-  <% else %>
     <%= select_tag('issue_id',
                    options_for_select([[l(:select_issues_option), 0]] + @assigned_issues.collect { |i| ["##{i.id} - #{i.subject}".html_safe, i.id] }), :style => 'width:250px') %>
-  <% end -%>
   <%= l(:label_date) %>
   <%= date_field_tag('time_entry_spent_on', if params[:spent_on] == '' then Date.today else params[:spent_on] end, :size => 10) %> <%= calendar_for('time_entry_spent_on') %>
   <%= l(:label_activity) %>
