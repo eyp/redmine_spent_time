@@ -5,8 +5,8 @@ Redmine::Plugin.register :redmine_spent_time do
   name 'Redmine Spent Time plugin'
   author 'Eduardo Yáñez Parareda'
   description 'Redmine\'s plugin to show and load projects\' spent time'
-  version '3.1.2'
-  requires_redmine '3.0'
+  version '4.0.0'
+  requires_redmine '4.0'
   url 'https://github.com/eyp/redmine_spent_time'
   author_url 'https://www.linkedin.com/in/eduardoyanez'
 

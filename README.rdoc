@@ -1,5 +1,5 @@
 = redmine_spent_time
-<b>Version >= 3.0.0 for Redmine 3.x (Rails 4.2, Ruby 2.2.1)</b>
+<b>Version >= 3.0.0 for Redmine 4.x</b>
 
 <b>Version 2.6.6 for Redmine >= 2.3 & < 3</b>
 
@@ -66,6 +66,10 @@ This plugin is licensed under the {Apache License, Version 2.0}[http://www.apach
 If you need help you can contact the maintainer at eduardo.yanez@gmail.com or create an issue in the {GitHub Issues tracker}[https://github.com/eyp/redmine_spent_time/issues].
 
 == Release notes
+<b>4.0.0 - 2019-06-12</b>
+* #114 Tested on Redmine 4.0.4/Rails 5.2.3.
+* #98 Changed date fields to be able to use browser calendars instead of simply text fields.
+
 <b>3.1.2 - 2015-10-01</b>
 * #77 Refactored routes.rb and fixed projects combo box (@alexandermeindl).
 
