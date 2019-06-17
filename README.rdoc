@@ -65,7 +65,7 @@ This plugin is licensed under the {Apache License, Version 2.0}[http://www.apach
 If you need help you can contact the maintainer at eduardo.yanez@gmail.com or create an issue in the {GitHub Issues tracker}[https://github.com/eyp/redmine_spent_time/issues].
 
 == Release notes
-<b>4.0.0 - 2019-06-12</b>
+<b>4.0.0 - 2019-06-17</b>
 * #114 Tested on Redmine 4.0.4/Rails 5.2.3.
 * #98 Changed date fields to be able to use browser calendars instead of simply text fields.
 
