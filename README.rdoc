@@ -1,7 +1,7 @@
 = redmine_spent_time
-<b>Version >= 3.0.0 for Redmine 4.x</b>
+<b>Version >= 4.0.0 for Redmine 4.x</b>
 
-<b>Version 2.6.6 for Redmine >= 2.3 & < 3</b>
+Versions for Redmine < 4.0 are not supported anymore.
 
 This is a {Redmine}[http://www.redmine.org]'s plugin which allow users to add spent time entries for issues they have worked on. 
 It gives users a comfortable form to do queries about their spent time on projects, along with a little form
@@ -15,10 +15,9 @@ has already spent some time but are not assigned to him.
 1. Go to your redmine root path/plugins.
 2. At the command line type
     git clone https://github.com/eyp/redmine_spent_time.git
-3. (For version 2.6.6 only) Install required gems (best_in_place is required) with bundler in redmine directory: cd .. && bundle install
-4. Restart your Redmine web servers (e.g. mongrel, thin, mod_rails).
-5. Login and configure the plugin (see Permissions section.)
-6. Click the 'Spent time' link in the top left menu.
+3. Restart your Redmine web servers (e.g. mongrel, thin, mod_rails).
+4. Login and configure the plugin (see Permissions section.)
+5. Click the 'Spent time' link in the top left menu.
 
 == Permissions
 
