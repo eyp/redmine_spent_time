@@ -5,9 +5,9 @@
     </p>
     <p>
       <%= l(:label_date_from) %>
-      <%= text_field_tag('init_date', '', :size => 10) %> <%= calendar_for('init_date') %>
+      <%= date_field_tag('init_date', '', :size => 10) %> <%= calendar_for('init_date') %>
       <%= l(:label_date_to) %>
-      <%= text_field_tag('end_date', '', :size => 10) %> <%= calendar_for('end_date') %>
+      <%= date_field_tag('end_date', '', :size => 10) %> <%= calendar_for('end_date') %>
       <%= submit_tag l(:button_apply), :name => nil %>
     </p>
   <% end %>

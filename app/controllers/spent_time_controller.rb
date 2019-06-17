@@ -20,7 +20,7 @@ class SpentTimeController < ApplicationController
       @users = User.active.order(:firstname)
     elsif authorized_for?(:view_others_spent_time)
       projects = User.current.projects
-      projects.each { |project| @users.concat(project.users) }
+      projects.each {|project| @users.concat(project.users)}
       @users.uniq!
       @users.sort!
     else
@@ -142,7 +142,7 @@ class SpentTimeController < ApplicationController
       logger.info(ex.message)
       respond_to do |format|
         flash[:error] = ex.message
-        format.js { render 'spent_time/create_entry_error' }
+        format.js {render 'spent_time/create_entry_error'}
       end
     end
   end
