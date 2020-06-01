@@ -1,5 +1,5 @@
 # Portuguese Brazil - strings go here
-pt:
+pt-BR:
   spent_time_title: "Tempo gasto"
   label_total_time: "Tempo total"
   label_new_entry: "Novo apontamento"
