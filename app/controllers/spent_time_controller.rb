@@ -17,18 +17,20 @@ class SpentTimeController < ApplicationController
     @user = User.current
     @users = []
     if authorized_for?(:view_every_project_spent_time)
+      logger.info("User is authorized for viewing every project spent time")
       @users = User.active.order(:firstname)
     elsif authorized_for?(:view_others_spent_time)
+      logger.info("User is authorized for viewing other team mates spent time")
       projects = User.current.projects
       projects.each {|project| @users.concat(project.users)}
       @users.uniq!
       @users.sort!
     else
+      logger.info("User is authorized for viewing only her spent time")
       @users = [@user]
     end
     params[:period] ||= '7_days'
     make_time_entry_report(nil, nil, User.current)
-    @assigned_issues = []
     @same_user = true
     @time_entry = TimeEntry.new
   end
@@ -87,13 +89,8 @@ class SpentTimeController < ApplicationController
       @from = params[:from].to_s.to_date
       @to = params[:to].to_s.to_date
 
-      # Save the new record
-      @time_entry = TimeEntry.new(:user => @user)
-      @time_entry.safe_attributes = params[:time_entry]
-
       begin
         @project = Project.find(params[:project_id])
-
         unless allowed_project?(params[:project_id])
           raise t('not_allowed_error', :project => @project)
         end
@@ -101,7 +98,9 @@ class SpentTimeController < ApplicationController
         raise t('cannot_find_project_error', project_id => params[:project_id])
       end
 
-      @time_entry.project = @project
+      @time_entry = TimeEntry.new(:user => @user, :author => @user, :project => @project)
+      @time_entry.safe_attributes = params[:time_entry]
+
       issue_id = (params[:issue_id] == nil) ? 0 : params[:issue_id].to_i
       if issue_id > 0
         begin
@@ -121,8 +120,7 @@ class SpentTimeController < ApplicationController
         render_403
         return
       end
-      @time_entry.user = @user
-      logger.info('Saving time entry...')
+      logger.info("Saving time entry for user: #{@time_entry.user}")
       if @time_entry.save!
         flash[:notice] = l('time_entry_added_notice')
         logger.info('Everything went fine rendering report result')
@@ -138,10 +136,10 @@ class SpentTimeController < ApplicationController
           return
         end
       end
-    rescue Exception => ex
-      logger.info(ex.message)
+    rescue Exception => exception
+      logger.info("Error saving time entry: #{exception}")
       respond_to do |format|
-        flash[:error] = ex.message
+        flash[:error] = exception.message
         format.js {render 'spent_time/create_entry_error'}
       end
     end

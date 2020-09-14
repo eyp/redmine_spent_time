@@ -8,7 +8,8 @@ module SpentTimeHelper
     @user = User.current
     begin
       @project = Project.find(project)
-    rescue
+    rescue => exception
+      logger.info("Error finding project #{project}: #{exception}")
       @assigned_issues = []
     else
       conditions = []
@@ -23,6 +24,7 @@ module SpentTimeHelper
                              .distinct
                              .order("#{Issue.table_name}.id DESC, #{Issue.table_name}.updated_on DESC")
     end
+    logger.info("assigned issues #{@assigned_issues}")
     @assigned_issues
   end
 
@@ -49,7 +51,7 @@ module SpentTimeHelper
   # Returns the users' projects ordered by name
   def user_projects_ordered
     projects = @user.projects.active.sort {|a, b| a.name <=> b.name}
-    find_assigned_issues_by_project(projects.first) if (projects.length == 1)
+    find_assigned_issues_by_project(projects.first.id) if (projects.length == 1)
     projects
   end
 

@@ -1,16 +1,16 @@
-= redmine_spent_time
+# redmine_spent_time
 <b>Version >= 4.0.0 for Redmine 4.x</b>
 
 Versions for Redmine < 4.0 are not supported anymore.
 
-This is a {Redmine}[http://www.redmine.org]'s plugin which allow users to add spent time entries for issues they have worked on. 
+This is a [Redmine's](http://www.redmine.org) plugin which allow users to add spent time entries for issues they have worked on.
 It gives users a comfortable form to do queries about their spent time on projects, along with a little form
 to submit new entries. Of course also it's possible to delete entries and to modify existing ones.
 
 From this functionality a user will be able to add time entries to assigned issues or to issues which he
 has already spent some time but are not assigned to him.
 
-== Installation
+## Installation
 
 1. Go to your redmine root path/plugins.
 2. At the command line type
@@ -19,7 +19,7 @@ has already spent some time but are not assigned to him.
 4. Login and configure the plugin (see Permissions section.)
 5. Click the 'Spent time' link in the top left menu.
 
-== Permissions
+## Permissions
 
 There are some permissions which can be set up for every role from the Administration -> Roles and permissions.
 
@@ -27,23 +27,23 @@ There are some permissions which can be set up for every role from the Administr
 * Project -> 'View others spent time': Deactivated by default, it allows the user to view the spent time of other members of the projects he is member of.
 * Project -> 'View every project spent time': Deactivated by default, it allows to view the spent time of everyone.
 
-== Usage
+## Usage
 
 It's very easy to use, click the 'Spent time' link in the top left menu, from there you will be able to do queries and add entries. 
 After doing a query, if there are time entries in the result, you will be able to modify or delete them.
 
-== Languages
+## Languages
 
 * Catalonian, English, French, German, Hungarian, Italian, Japanese, Polish, Portuguese, Russian, Simplified Chinese & Spanish.
 <b>HELP on translations</b>: Only English, Italian, Japansese & Spanish are complete, others need some literals to translate.
 
-== Code contributors
+## Code contributors
 
 * @lauer (Jesper Grann Laursen), @burci (Peter Buri), @mjanser (Martin Janser)
 * @pedrosnk (Pedro Medeiros), @krewetka (Ania Krawet), @mficzel (Martin Ficzel)
 * @nick7ikin, @Weptun, @alexandermeindl (Alexander Meindl)
 
-== Translators
+## Translators
 
 * General help on translations: @cforce (Terence Miller)
 * German: @mjanser (Martin Janser), @alexandermeindl (Alexander Meindl)
@@ -56,15 +56,18 @@ After doing a query, if there are time entries in the result, you will be able t
 * Simplified Chinese: @archonwang (Steven W.)
 * Czech: @j123b567 (Jan Breuer)
 
-== License
+## License
 
 This plugin is licensed under the {Apache License, Version 2.0}[http://www.apache.org/licenses/LICENSE-2.0.html].
 
-== Project help
+## Project help
 
 If you need help you can contact the maintainer at eduardo.yanez@gmail.com or create an issue in the {GitHub Issues tracker}[https://github.com/eyp/redmine_spent_time/issues].
 
-== Release notes
+## Release notes
+<b>4.0.1 - 2020-09-14</b>
+* #116 Fixed problem of invalid user creating a time entry. Tested on Redmine 4.1.1/Ruby 2.6.6/Rails 5.2.3.
+
 <b>4.0.0 - 2019-06-17</b>
 * #114 Tested on Redmine 4.0.4/Rails 5.2.3.
 * #98 Changed date fields to be able to use browser calendars instead of simply text fields.
