@@ -58,15 +58,15 @@ After doing a query, if there are time entries in the result, you will be able t
 
 ## License
 
-This plugin is licensed under the {Apache License, Version 2.0}[http://www.apache.org/licenses/LICENSE-2.0.html].
+This plugin is licensed under the [Apache License, Version 2.0(http://www.apache.org/licenses/LICENSE-2.0.html).
 
 ## Project help
 
-If you need help you can contact the maintainer at eduardo.yanez@gmail.com or create an issue in the {GitHub Issues tracker}[https://github.com/eyp/redmine_spent_time/issues].
+If you need help you can create an issue in the [GitHub Issues tracker](https://github.com/eyp/redmine_spent_time/issues).
 
 ## Release notes
-<b>4.0.1 - 2020-09-14</b>
-* #116 Fixed problem of invalid user creating a time entry. Tested on Redmine 4.1.1/Ruby 2.6.6/Rails 5.2.3.
+<b>4.1.0 - 2020-09-14</b>
+* Fix: #116 invalid user creating a time entry on Redmine 4.1.X. Tested on Redmine 4.1.1/Ruby 2.6.6/Rails 5.2.3.
 
 <b>4.0.0 - 2019-06-17</b>
 * #114 Tested on Redmine 4.0.4/Rails 5.2.3.
@@ -121,5 +121,3 @@ If you need help you can contact the maintainer at eduardo.yanez@gmail.com or cr
 * Only shows active projects by default (@Weptun).
 * Check permissions before create entries (@nick7ikin).
 * More errors controls (@nick7ikin).
-
-All {release notes}[https://github.com/eyp/redmine_spent_time/blob/master/release-notes.rdoc]
