@@ -3,7 +3,7 @@
 
 Versions for Redmine < 4.0 are not supported anymore.
 
-This is a [Redmine's](http://www.redmine.org) plugin which allow users to add spent time entries for issues they have worked on.
+This is a [Redmine's](https://www.redmine.org) plugin which allow users to add spent time entries for issues they have worked on.
 It gives users a comfortable form to do queries about their spent time on projects, along with a little form
 to submit new entries. Of course also it's possible to delete entries and to modify existing ones.
 
@@ -58,7 +58,7 @@ After doing a query, if there are time entries in the result, you will be able t
 
 ## License
 
-This plugin is licensed under the [Apache License, Version 2.0(http://www.apache.org/licenses/LICENSE-2.0.html).
+This plugin is licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html).
 
 ## Project help
 
