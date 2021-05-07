@@ -12,22 +12,23 @@ module SpentTimeHelper
       logger.info("Error finding project #{project}: #{exception}")
       @assigned_issues = []
     else
-       @project = nil
+      @project = nil
     end
 
-      @assigned_issues = []
-      conditions = []
-      conditions << "(#{Issue.table_name}.assigned_to_id=:user_id or #{TimeEntry.table_name}.user_id=:user_id)"
-      conditions << "#{IssueStatus.table_name}.is_closed=:closed_status"
-      conditions << "#{Project.table_name}.status=#{Project::STATUS_ACTIVE}"
-      conditions << "#{Project.table_name}.id=:project_id" if @project
-      arguments = {:user_id => @user.id, :closed_status => false}
-      arguments[:project_id] = @project.id if @project
-      @assigned_issues = Issue.joins(:status, :project, :tracker, :priority)
-                             .joins('LEFT JOIN time_entries ON time_entries.issue_id = issues.id')
-                             .where(conditions.join(' AND '), arguments)
-                             .distinct
-                             .order("#{Issue.table_name}.id DESC, #{Issue.table_name}.updated_on DESC")
+    @assigned_issues = []
+    conditions = []
+    conditions << "(#{Issue.table_name}.assigned_to_id=:user_id or #{TimeEntry.table_name}.user_id=:user_id)"
+    conditions << "#{IssueStatus.table_name}.is_closed=:closed_status"
+    conditions << "#{Project.table_name}.status=#{Project::STATUS_ACTIVE}"
+    conditions << "#{Project.table_name}.id=:project_id" if @project
+    arguments = {:user_id => @user.id, :closed_status => false}
+    arguments[:project_id] = @project.id if @project
+    @assigned_issues = Issue.joins(:status, :project, :tracker, :priority)
+                            .joins('LEFT JOIN time_entries ON time_entries.issue_id = issues.id')
+                            .where(conditions.join(' AND '), arguments)
+                            .distinct
+                            .order("#{Issue.table_name}.id DESC, #{Issue.table_name}.updated_on DESC")
+
     logger.info("assigned issues #{@assigned_issues}")
     @assigned_issues
   end
