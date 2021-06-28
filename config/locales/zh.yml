@@ -26,3 +26,4 @@ zh:
   cannot_find_project_error: "ID为 %{project_id} 的项目不存在！"
   project_is_mandatory_error: "您必须选择一个项目！"
   label_total_estimated_time: "总计预估时间"
+  label_day_length: "Day length (in hours)"

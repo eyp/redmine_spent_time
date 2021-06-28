@@ -23,3 +23,4 @@ de:
   cannot_find_project_error: "Es kann kein Projekt mit der id=%{project_id} gefunden werden"
   project_is_mandatory_error: "Es muss ein Projekt ausgewählt werden"
   label_total_estimated_time: "Gesamtzeit geschätzt"
+  label_day_length: "Day length (in hours)"

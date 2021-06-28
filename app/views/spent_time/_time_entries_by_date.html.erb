@@ -9,10 +9,10 @@
   <%
     total_hours = (@entries_by_date[day].nil? ? 0 : @entries_by_date[day].sum(&:hours).to_f)
     style = 'hours'
-    if total_hours < 8.0
-        style = 'less_than_8_hours'
-    elsif total_hours > 8.0
-        style = 'more_than_8_hours'
+    if total_hours < @day_length.to_f && !is_weekend
+        style = 'less_than_day_length'
+    elsif total_hours > @day_length.to_f && !is_weekend
+        style = 'more_than_day_length'
     end
   %>
   <td class="<%= style %> centered"><em><%= format_hours(total_hours) %></em></td>
