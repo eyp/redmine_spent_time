@@ -22,3 +22,4 @@
   cannot_find_project_error: "プロジェクトが見つかりませんでした id=%{project_id}"
   project_is_mandatory_error: "プロジェクトを選んでください"
   label_total_estimated_time: "予定時間"
+  label_day_length: "Day length (in hours)"

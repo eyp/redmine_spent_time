@@ -93,6 +93,7 @@ module SpentTimeHelper
     }
     @assigned_issues = []
     @activities = TimeEntryActivity.all
+    @day_length = @plugin_setting ||= Setting.plugin_redmine_spent_time['spent_time_day_length']
   end
 
   # Retrieves the date range based on predefined ranges or specific from/to param dates

@@ -13,8 +13,11 @@ Redmine::Plugin.register :redmine_spent_time do
   permission :view_spent_time, {:spent_time => [:index]}
   permission :view_others_spent_time, {:spent_time => [:index]}
   permission :view_every_project_spent_time, {:spent_time => [:index]}
+  settings :default => {
+      'spent_time_day_length' => 8
+  }, :partial => 'spent_time_settings'
 
-  menu(:top_menu, 
+  menu(:top_menu,
        :spent_time,
        {:controller => 'spent_time', :action => 'index'},
        :caption => :spent_time_title,

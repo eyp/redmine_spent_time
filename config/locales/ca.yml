@@ -23,3 +23,4 @@ ca:
   cannot_find_project_error: "Cannot find project with id=%{project_id}"
   project_is_mandatory_error: "You must select a project"
   label_total_estimated_time: "Total estimated time"
+  label_day_length: "Day length (in hours)"

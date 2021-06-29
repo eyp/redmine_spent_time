@@ -16,7 +16,7 @@ td.issue-hours {
     font-size: 0.9em;
 }
 
-td.less_than_8_hours {
+td.less_than_day_length {
     text-align: right;
     padding-right: 0.5em;
     font-weight: bold;
@@ -24,7 +24,7 @@ td.less_than_8_hours {
     font-size: 0.9em;
 }
 
-td.more_than_8_hours {
+td.more_than_day_length {
     text-align: right;
     padding-right: 0.5em;
     font-weight: bold;
