@@ -23,4 +23,5 @@ pt:
   cannot_find_project_error: "Não é possível encontrar projeto com id=%{project_id}"
   project_is_mandatory_error: "Você precisa selecionar um projeto"
   label_total_estimated_time: "Tempo estimado total"
+  label_all_time: "Sempre"
 
