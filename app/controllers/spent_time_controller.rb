@@ -31,6 +31,8 @@ class SpentTimeController < ApplicationController
     end
     params[:period] ||= '7_days'
     make_time_entry_report(nil, nil, User.current)
+    @assigned_issues = []
+    find_assigned_issues_by_project(nil)
     @same_user = true
     @time_entry = TimeEntry.new
   end
@@ -76,7 +78,10 @@ class SpentTimeController < ApplicationController
   def create_entry
     begin
       @user = User.current
-      raise t('project_is_mandatory_error') if params[:project_id].to_i < 0
+      if(params[:project_id].to_i < 0)
+        params[:project_id] = Issue.find(params[:issue_id]).project_id
+     end
+
 
       begin
         @time_entry_date = params[:time_entry_spent_on].to_s.to_date
@@ -149,7 +154,11 @@ class SpentTimeController < ApplicationController
   def update_project_issues
     @to = params[:to].to_date
     @from = params[:from].to_date
-    project = Project.find(params[:project_id])
+    begin
+      project = Project.find(params[:project_id])
+    rescue
+      project = nil
+    end
     @time_entry = TimeEntry.new(:project => project)
     find_assigned_issues_by_project(params[:project_id])
     respond_to do |format|
