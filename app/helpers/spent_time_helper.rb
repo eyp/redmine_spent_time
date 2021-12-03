@@ -11,8 +11,6 @@ module SpentTimeHelper
     rescue => exception
       logger.info("Error finding project #{project}: #{exception}")
       @assigned_issues = []
-    else
-      @project = nil
     end
 
     @assigned_issues = []
