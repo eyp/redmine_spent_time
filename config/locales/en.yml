@@ -4,6 +4,7 @@ en:
   label_total_time: "Total time"
   label_new_entry: "New Entry"
   label_add_entry: "Add Entry"
+  label_all_time: "all time"
   weekend: "Weekend"
   select_issues_option: "Select Issue"
   issue_not_exists: "Issue Not Exists"
