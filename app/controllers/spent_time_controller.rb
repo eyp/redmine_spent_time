@@ -119,6 +119,9 @@ class SpentTimeController < ApplicationController
           raise t('issue_not_in_project_error', issue => @issue, project => @project)
         end
       end
+      if issue_id == 0
+        raise "Validation failed: No issue specified"
+      end
 
       if @time_entry.project && !@user.allowed_to?(:log_time, @time_entry.project)
         render_403
