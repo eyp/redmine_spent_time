@@ -80,8 +80,7 @@ class SpentTimeController < ApplicationController
       @user = User.current
       if(params[:project_id].to_i < 0)
         params[:project_id] = Issue.find(params[:issue_id]).project_id
-     end
-
+      end
 
       begin
         @time_entry_date = params[:time_entry_spent_on].to_s.to_date
@@ -119,6 +118,9 @@ class SpentTimeController < ApplicationController
         else
           raise t('issue_not_in_project_error', issue => @issue, project => @project)
         end
+      end
+      if issue_id == 0
+        raise "Validation failed: No issue specified"
       end
 
       if @time_entry.project && !@user.allowed_to?(:log_time, @time_entry.project)
