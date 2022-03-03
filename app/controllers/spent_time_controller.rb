@@ -80,8 +80,7 @@ class SpentTimeController < ApplicationController
       @user = User.current
       if(params[:project_id].to_i < 0)
         params[:project_id] = Issue.find(params[:issue_id]).project_id
-     end
-
+      end
 
       begin
         @time_entry_date = params[:time_entry_spent_on].to_s.to_date
