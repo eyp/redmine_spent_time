@@ -2,6 +2,8 @@
     <%= stylesheet_link_tag 'spent_time', :plugin => 'redmine_spent_time' %>
 <% end %>
 
+<div id="urdr-notice">While this page will still be available, it's probably easier to use <a href="https://urdr.nbis.se">urdr.nbis.se</a> for timelogging.</div>
+
 <%= form_tag(spent_time_report_path, :id => "form_query", :remote => true,
              :onsubmit => "new Ajax.Request('#{spent_time_report_path}', {asynchronous:true, evalScripts:true, method:'get', parameters:Form.serialize(this)}); return false;") do -%>
   <h2><%=l(:label_spent_time) %></h2>

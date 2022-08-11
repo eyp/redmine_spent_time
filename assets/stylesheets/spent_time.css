@@ -36,6 +36,19 @@ td.more_than_8_hours {
     background-color: #ffdfe6;
 }
 
+#urdr-notice {
+    width: 100%;
+    border: 1px solid #628DB6;
+    background: #628DB622;
+    padding: 0.5ex;
+    font-size: 14px;
+    text-align: center;
+}
+
+#urdr-notice a {
+    font-weight: bolder;
+}
+
 #new_time_entry_form {
     margin-bottom: 10px;
 }
