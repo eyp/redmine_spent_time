@@ -23,3 +23,4 @@ el:
   cannot_find_project_error: "Δεν βρέθηκε έργο με id=%{project_id}"
   project_is_mandatory_error: "Η επιλογή έργου είναι υποχρεωτική"
   label_total_estimated_time: "Συνολικός εκτιμώμενος χρόνος"
+  label_all_time: "Δυνέχεια"

@@ -23,3 +23,4 @@ cs:
   cannot_find_project_error: "Nelze nalézt projekt s id=%{project_id}"
   project_is_mandatory_error: "Musíte vybrat projekt"
   label_total_estimated_time: "Celková odhadovaná doba"
+  label_all_time: "Vše"

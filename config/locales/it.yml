@@ -23,3 +23,4 @@ it:
   cannot_find_project_error: "Progetto con id=%{project_id} non trovato"
   project_is_mandatory_error: "Devi selezionare un progetto"
   label_total_estimated_time: "Tempo totale stimato"
+  label_all_time: "Sempre"
