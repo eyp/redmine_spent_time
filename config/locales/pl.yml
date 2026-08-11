@@ -24,3 +24,5 @@ pl:
   project_is_mandatory_error: "Musisz najpierw wybrać projekt"
   label_total_estimated_time: "Łączny szacowany czas"
   label_all_time: "Cały czas"
+  label_date_from: "Od"
+  label_date_to: "Do"

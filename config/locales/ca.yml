@@ -24,3 +24,5 @@ ca:
   project_is_mandatory_error: "You must select a project"
   label_total_estimated_time: "Total estimated time"
   label_all_time: "Tot el temps"
+  label_date_from: "Des de"
+  label_date_to: "A"

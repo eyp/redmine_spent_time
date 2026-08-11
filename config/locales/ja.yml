@@ -23,3 +23,5 @@
   project_is_mandatory_error: "プロジェクトを選んでください"
   label_total_estimated_time: "予定時間"
   label_all_time: "全期間"
+  label_date_from: "日付指定: "
+  label_date_to: "から"

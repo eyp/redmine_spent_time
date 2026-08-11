@@ -24,3 +24,5 @@ cs:
   project_is_mandatory_error: "Musíte vybrat projekt"
   label_total_estimated_time: "Celková odhadovaná doba"
   label_all_time: "Vše"
+  label_date_from: "Od"
+  label_date_to: "Do"

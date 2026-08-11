@@ -146,7 +146,7 @@ module SpentTimeHelper
     end
 
     @from, @to = @to, @from if @from && @to && @from > @to
-    @from ||= (TimeEntry.minimum(:spent_on, :include => :project, :conditions => Project.allowed_to_condition(User.current, :view_time_entries)) || Date.today) - 1
+    @from ||= (TimeEntry.joins(:project).where(Project.allowed_to_condition(User.current, :view_time_entries)).minimum(:spent_on) || Date.today) - 1
     @to ||= Date.today
   end
 

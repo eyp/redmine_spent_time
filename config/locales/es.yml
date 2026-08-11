@@ -24,3 +24,5 @@ es:
   project_is_mandatory_error: "Debes seleccionar un proyecto"
   label_total_estimated_time: "Tiempo total estimado"
   label_all_time: "Todo el tiempo"
+  label_date_from: "Desde"
+  label_date_to: "Hasta"

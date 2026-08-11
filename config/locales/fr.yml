@@ -23,4 +23,6 @@ fr:
   cannot_find_project_error: "Impossible de trouver le projet avec l'id=%{project_id}"
   project_is_mandatory_error: "Vous devez sélectionner un projet"
   label_total_estimated_time: "Temps total estimé"
-  abel_all_time: "Toute la période"
+  label_all_time: "Toute la période"
+  label_date_from: "Du"
+  label_date_to: "Au"

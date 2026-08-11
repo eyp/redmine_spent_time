@@ -1,4 +1,13 @@
 == Release notes
+<b>4.2.1 - 2026-07-29</b>
+* Fix: "Translation missing: en.label_date_from / en.label_date_to" on the report and new entry forms under Redmine 7.0, which dropped both keys from core locales (redmine.org patch #44065). They are now shipped by the plugin itself.
+* Fix: typo +abel_all_time+ in the French locale, which made the "all time" period fall back to English.
+
+<b>4.2.0 - 2026-07-23</b>
+* Compatibility with Redmine 6.1 and 7.0 (Rails 7.2, Ruby 3.3)
+* Fix: replaced removed ActiveRecord finder option +minimum(column, :include/:conditions)+ with modern +joins/where+ query (broke the "all time" period)
+* Tests: fixed plugin test_helper load path and added functional tests for the spent time report
+
 <b>3.1.2 - 2015-10-01</b>
 * #77 Refactored routes.rb and fixed projects combo box (@alexandermeindl).
 

@@ -24,4 +24,6 @@ hu:
   project_is_mandatory_error: "You must select a project"
   label_total_estimated_time: "Total estimated time"
   label_all_time: "Mindenkor"
+  label_date_from: "Kezdet:"
+  label_date_to: "Vége:"
 

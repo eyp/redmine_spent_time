@@ -27,3 +27,5 @@ zh:
   project_is_mandatory_error: "您必须选择一个项目！"
   label_total_estimated_time: "总计预估时间"
   label_all_time: "全部时间"
+  label_date_from: "从"
+  label_date_to: "到"
