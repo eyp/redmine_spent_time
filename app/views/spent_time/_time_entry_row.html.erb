@@ -10,7 +10,7 @@
       <%= link_to(image_tag('edit.png'), {:controller => 'timelog', :action => 'edit', :id => entry},
                   :title => l(:button_edit)) %>
       <%= link_to(image_tag('delete.png'), {:controller => 'spent_time', :action => 'destroy_entry', :id => entry.id, :from => @from, :to => @to},
-                  :remote => true,
+                  :remote => true, :method => :delete,
                   :data => {:confirm => l(:text_are_you_sure)}) %>
   <% end %>
   </td>
